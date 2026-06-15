@@ -1,0 +1,812 @@
+﻿* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            position: relative;
+        }
+        
+        /* Fondo de marca de agua usando pseudo-elemento */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../imagenes/DGCFT.png');
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-attachment: fixed;
+            background-size: 33%;
+            opacity: 0.20;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Encabezado principal */
+        .header-top {
+            background-color: #691c32;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .logo-gob {
+            height: 60px;
+        }
+        
+        /* Banner de subdirección */
+        .nav-subtitle {
+            background-color: #8B1538;
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+        
+        .nav-subtitle h1 {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        /* Barra de navegación principal */
+        .nav-main {
+            background-color: #691c32;
+            padding: 0;
+            position: fixed;
+            top: 130px;
+            left: 0;
+            right: 0;
+            z-index: 998;
+        }
+        
+        .nav-main ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-main li {
+            position: relative;
+        }
+        
+        .nav-main a {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-main a:hover {
+            background-color: #6B1028;
+        }
+        
+        /* Estilos para menú desplegable */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle::after {
+            content: " \25BC";
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #691c32 !important;
+            background: #691c32 !important;
+            min-width: 250px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10000;
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+            border: 1px solid #8B1538;
+            border-radius: 5px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown.is-open .dropdown-menu {
+            visibility: visible;
+            opacity: 1;
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            width: 100%;
+        }
+        
+        .nav-main .dropdown-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: #611232 !important;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            white-space: normal;
+            line-height: 1.4;
+            background-color: transparent !important;
+        }
+        
+        .nav-main .dropdown-menu a:hover {
+            background-color: #ddc9a3 !important;
+            color: #333 !important;
+        }
+        
+        /* Contenido principal */
+        .main-content {
+            min-height: 400px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        /* Estilos para contenido de requisitos */
+        #requisitos-inscripcion {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        #requisitos-inscripcion h2 {
+            color: #691c32;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 10px;
+        }
+        
+        #requisitos-inscripcion h3 {
+            color: #8B1538;
+            font-size: 20px;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+        }
+        
+        #requisitos-inscripcion p {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        #requisitos-inscripcion ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        #requisitos-inscripcion li {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        /* Estilos para contenido de especialidades */
+        #especialidades-contenido {
+            max-width: 1200px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        #especialidades-contenido h2 {
+            color: #691c32;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 15px;
+        }
+        
+        .especialidades-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .especialidad-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(105, 28, 50, 0.2);
+            border-color: #691c32;
+        }
+        
+        .especialidad-imagen {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+            background-color: #f8f9fa;
+            padding: 10px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        
+        .especialidad-item:hover .especialidad-imagen {
+            transform: scale(1.05);
+        }
+        
+        .especialidad-header {
+            background-color: #691c32;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            flex: 1;
+        }
+        
+        .especialidad-header:hover {
+            background-color: #8B1538;
+        }
+        
+        .especialidad-header h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.3;
+        }
+        
+        .planteles-list {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            border-top: 1px solid #e9ecef;
+            display: none;
+        }
+        
+        .planteles-list.active {
+            max-height: 700px;
+            padding: 20px;
+            display: block;
+        }
+        
+        .planteles-list[style*="block"] {
+            max-height: 700px;
+            padding: 20px;
+        }
+        
+        .plantel-item {
+            padding: 4px 0;
+            border-bottom: 1px solid #e9ecef;
+            color: #333;
+            font-size: 13px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .plantel-item:last-child {
+            border-bottom: none;
+        }
+        
+        .plantel-item:hover {
+            padding-left: 10px;
+            border-radius: 5px;
+        }
+        
+        .plantel-item strong {
+            color: #691c32;
+            font-weight: 600;
+        }
+        
+        /* Estilos para barra de búsqueda */
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 5px 10px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .search-box:focus-within {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        #busqueda-especialidad {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 12px;
+            padding: 5px 8px;
+            width: 180px;
+            outline: none;
+        }
+        
+        #busqueda-especialidad::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+        }
+        
+        #busqueda-especialidad:focus::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        #search-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        #search-btn:hover {
+            background-color: rgba(255, 215, 0, 0.2);
+            transform: scale(1.1);
+        }
+        
+        #search-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            right: 10px;
+            background-color: #8B1538;
+            border: 1px solid #FFD700;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 10001;
+            min-width: 250px;
+            margin-top: 5px;
+        }
+        
+        .search-result-item {
+            padding: 10px 15px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+            line-height: 1.3;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .search-result-item:hover {
+            background-color: #691c32;
+        }
+        
+        .search-result-item strong {
+            color: #FFD700;
+            font-weight: 600;
+        }
+        
+        .search-no-results {
+            padding: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        /* Estilos mínimos para iconos de navegación */
+        .nav-item-with-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 4px;
+            object-fit: contain;
+        }
+        
+        .dropdown-toggle .nav-item-with-icon span {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* ===========================================
+           DETALLE DE PLANTEL (contenido inyectado por JS)
+           =========================================== */
+        .plantel-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .plantel-directorio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .plantel-directorio-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            /* Evita que correos largos rompan el layout */
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            min-width: 0;
+        }
+        .plantel-directorio-item p {
+            overflow-wrap: anywhere;
+        }
+        .plantel-especialidades-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        .plantel-especialidad-btn {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            min-width: 0;
+        }
+        .plantel-especialidad-btn:hover {
+            background: #f8f9fa;
+            border-color: #691c32;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(105, 28, 50, 0.15);
+        }
+        .plantel-especialidad-btn p {
+            margin: 0;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+
+        /* ===========================================
+           DISEÑO ADAPTABLE (RESPONSIVE)
+           Breakpoints:
+             - 1024px: tablets horizontales / laptops pequeñas
+             -  768px: tablets verticales / móviles grandes
+             -  480px: móviles
+             -  360px: móviles pequeños
+           =========================================== */
+
+        /* ---------- 1024px: Tablets horizontales ---------- */
+        @media (max-width: 1024px) {
+            .nav-subtitle h1 {
+                font-size: 18px;
+            }
+            .nav-main a {
+                padding: 12px 14px;
+                font-size: 13px;
+            }
+            .nav-icon {
+                width: 22px;
+                height: 22px;
+            }
+            .dropdown-toggle .nav-item-with-icon span {
+                font-size: 11px;
+            }
+            #busqueda-especialidad {
+                width: 150px;
+            }
+            .especialidades-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 100%;
+                padding: 0 15px;
+            }
+            body::before {
+                background-size: 50%;
+            }
+        }
+
+        /* ---------- 768px: Tablets / móviles grandes ---------- */
+        @media (max-width: 768px) {
+            /* Cabeceras en flujo normal (dejan de ser fixed) */
+            .header-top,
+            .nav-subtitle,
+            .nav-main {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+            }
+            .main-content {
+                margin-top: 20px;
+                padding: 15px;
+            }
+
+            .header-top {
+                padding: 8px 12px;
+            }
+            .logo-gob {
+                height: 50px;
+            }
+
+            .nav-subtitle {
+                padding: 12px 15px;
+            }
+            .nav-subtitle h1 {
+                font-size: 15px;
+                line-height: 1.3;
+            }
+
+            /* Barra nav: items en wrap centrado */
+            .nav-main {
+                position: relative;
+            }
+            .nav-main ul {
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            .nav-main a {
+                padding: 10px 8px;
+                font-size: 12px;
+            }
+            .nav-icon {
+                width: 20px;
+                height: 20px;
+                margin-bottom: 2px;
+            }
+            .dropdown-toggle .nav-item-with-icon span {
+                font-size: 10px;
+            }
+
+            /* === DROPDOWNS EN MÓVIL ===
+               - Desactivar :hover (queda pegado en táctil)
+               - Usar .is-open gestionado por JS
+               - El <li> es position:static para que el menú
+                 se ancle al nav completo, no al botón pequeño */
+            .dropdown:hover .dropdown-menu,
+            .dropdown:focus-within .dropdown-menu {
+                visibility: hidden;
+                opacity: 0;
+                display: none;
+            }
+            .dropdown {
+                position: static !important;
+            }
+            .dropdown-menu {
+                left: 8px !important;
+                right: 8px !important;
+                width: calc(100vw - 16px) !important;
+                min-width: 0 !important;
+                max-width: calc(100vw - 16px) !important;
+                max-height: 75vh;
+                overflow-y: auto;
+                box-sizing: border-box;
+            }
+            .dropdown.is-open .dropdown-menu {
+                visibility: visible !important;
+                opacity: 1 !important;
+                display: block !important;
+            }
+            .dropdown-menu li {
+                width: 100%;
+            }
+            .dropdown-menu a {
+                font-size: 13px;
+                padding: 12px 14px;
+                line-height: 1.4;
+                white-space: normal;
+                overflow-wrap: anywhere;
+            }
+            .dropdown-menu a strong {
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            /* Barra de búsqueda: ocupa su propia línea */
+            .search-container {
+                flex-basis: 100%;
+                width: 100%;
+                order: 99;
+                padding: 8px 10px;
+                justify-content: center;
+            }
+            .search-box {
+                margin: 0;
+                flex: 1;
+                max-width: 500px;
+            }
+            #busqueda-especialidad {
+                width: 100%;
+                flex: 1;
+                font-size: 13px;
+            }
+            .search-results {
+                left: 10px;
+                right: 10px;
+                min-width: auto;
+            }
+
+            .especialidades-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+                padding: 0 10px;
+            }
+            #especialidades-contenido h2 { font-size: 24px; }
+            .especialidad-imagen { height: 130px; }
+            .especialidad-header { padding: 12px; }
+            .especialidad-header h3 { font-size: 14px; }
+
+            #requisitos-inscripcion h2 { font-size: 22px; }
+            #requisitos-inscripcion h3 { font-size: 17px; }
+            #requisitos-inscripcion p,
+            #requisitos-inscripcion li { font-size: 14px; }
+
+            body::before {
+                background-size: 70%;
+                background-attachment: scroll;
+            }
+
+            .plantel-directorio-grid { grid-template-columns: 1fr; }
+            .plantel-especialidades-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ---------- 480px: Móviles ---------- */
+        @media (max-width: 480px) {
+            .header-top {
+                padding: 6px 10px;
+            }
+            .logo-gob {
+                height: 40px;
+            }
+
+            .nav-subtitle {
+                padding: 10px 12px;
+                border-bottom-width: 2px;
+            }
+            .nav-subtitle h1 {
+                font-size: 12.5px;
+                line-height: 1.25;
+            }
+
+            .nav-main a {
+                padding: 8px 5px;
+            }
+            .dropdown-toggle .nav-item-with-icon span {
+                font-size: 9.5px;
+            }
+            .nav-icon {
+                width: 18px;
+                height: 18px;
+            }
+
+            /* Refuerzos al dropdown ya configurado en el breakpoint de 768px */
+            .dropdown-menu a {
+                font-size: 12.5px;
+                padding: 10px 12px;
+            }
+
+            .search-container {
+                padding: 6px 8px;
+            }
+            #busqueda-especialidad {
+                font-size: 13px;
+                padding: 6px 8px;
+            }
+
+            /* Grid de especialidades: una sola columna */
+            .especialidades-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 0 5px;
+            }
+            #especialidades-contenido h2 {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+            .especialidad-imagen {
+                height: 180px;
+            }
+            .especialidad-header h3 {
+                font-size: 15px;
+            }
+
+            .main-content {
+                padding: 12px;
+                margin-top: 10px;
+            }
+
+            #requisitos-inscripcion h2 {
+                font-size: 19px;
+            }
+            #requisitos-inscripcion h3 {
+                font-size: 15px;
+            }
+            #requisitos-inscripcion p,
+            #requisitos-inscripcion li {
+                font-size: 13px;
+            }
+            #requisitos-inscripcion ul {
+                padding-left: 20px;
+            }
+
+            body::before {
+                background-size: 90%;
+                opacity: 0.12;
+            }
+
+            /* Detalle de plantel: todos los grids colapsan a 1 col */
+            .plantel-info-grid,
+            .plantel-directorio-grid,
+            .plantel-especialidades-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        /* ---------- 360px: Móviles muy pequeños ---------- */
+        @media (max-width: 360px) {
+            .nav-subtitle h1 {
+                font-size: 11px;
+            }
+            .nav-main a {
+                padding: 6px 3px;
+            }
+            .dropdown-toggle .nav-item-with-icon span {
+                font-size: 8.5px;
+            }
+            .nav-icon {
+                width: 16px;
+                height: 16px;
+            }
+        }
