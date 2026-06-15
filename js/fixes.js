@@ -1,0 +1,142 @@
+// ============================================================
+//  fixes.js  –  correcciones de navegación y comportamiento
+//  (los dropdowns móviles ya los maneja site.js)
+// ============================================================
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ---------- Especialidades y Requisitos desde páginas secundarias ----------
+
+    function byText(selector, text) {
+        return Array.from(document.querySelectorAll(selector)).find(function (el) {
+            return el.textContent.trim().toUpperCase() === text;
+        });
+    }
+
+    var especialidadesLink = byText('.dropdown-menu a', 'ESPECIALIDADES');
+    if (especialidadesLink) {
+        especialidadesLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (typeof window.mostrarEspecialidades === 'function') {
+                window.mostrarEspecialidades();
+            } else {
+                sessionStorage.setItem('mostrarSeccion', 'especialidades');
+                window.location.href = 'index.html';
+            }
+        });
+    }
+
+    var requisitosLink = byText('.dropdown-menu a', 'REQUISITOS DE INSCRIPCIÓN');
+    if (requisitosLink) {
+        requisitosLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (typeof window.mostrarRequisitos === 'function') {
+                window.mostrarRequisitos();
+            } else {
+                sessionStorage.setItem('mostrarSeccion', 'requisitos');
+                window.location.href = 'index.html';
+            }
+        });
+    }
+
+    // ---------- Toggle de planteles en especialidades ----------
+
+    document.querySelectorAll('.especialidad-item').forEach(function (item) {
+        var list = item.querySelector('.planteles-list');
+        if (!list || !list.id) return;
+
+        var open = function (e) {
+            e.preventDefault();
+            if (typeof window.togglePlanteles === 'function') {
+                window.togglePlanteles(list.id);
+            } else {
+                document.querySelectorAll('.planteles-list').forEach(function (other) {
+                    if (other !== list) { other.style.display = 'none'; other.classList.remove('active'); }
+                });
+                var isOpen = list.style.display === 'block';
+                list.style.display = isOpen ? 'none' : 'block';
+                list.classList.toggle('active', !isOpen);
+            }
+        };
+
+        ['especialidad-imagen', 'especialidad-header'].forEach(function (cls) {
+            var el = item.querySelector('.' + cls);
+            if (el && !el.dataset.fixedClick) {
+                el.dataset.fixedClick = 'true';
+                el.addEventListener('click', open);
+            }
+        });
+    });
+
+    // ---------- Abrir noticia desde hash (#noticia-N) ----------
+
+    function abrirNotaDesdeHash() {
+        var match = window.location.hash.match(/^#noticia-(\d+)$/);
+        if (match && typeof window.mostrarDetalleNoticia === 'function') {
+            window.mostrarDetalleNoticia(Number(match[1]));
+        }
+    }
+
+    document.querySelectorAll('#seccion-noticias-recientes a[href="boletines.html"]').forEach(function (link, i) {
+        var id = i + 1;
+        link.href = 'boletines.html#noticia-' + id;
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.href = link.href;
+        });
+    });
+
+    abrirNotaDesdeHash();
+    window.addEventListener('hashchange', abrirNotaDesdeHash);
+
+    // ---------- Detalle de especialidad desde imagen/header ----------
+
+    document.querySelectorAll('#especialidades-contenido .especialidad-item').forEach(function (item) {
+        var titulo = (item.querySelector('.especialidad-header h3') || item.querySelector('.especialidad-imagen') || {}).textContent;
+        if (!titulo) titulo = (item.querySelector('.especialidad-imagen') || {}).alt;
+        if (!titulo) return;
+        titulo = titulo.trim();
+
+        ['especialidad-imagen', 'especialidad-header'].forEach(function (cls) {
+            var el = item.querySelector('.' + cls);
+            if (!el || el.dataset.detalleEspecialidadFix) return;
+            el.dataset.detalleEspecialidadFix = 'true';
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', function (e) {
+                if (typeof window.mostrarDetalleEspecialidad !== 'function') return;
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                window.mostrarDetalleEspecialidad(titulo);
+            }, true);
+        });
+    });
+
+    // ---------- Navegación a plantel desde cualquier página ----------
+
+    function enlazarPlantel(el, plantel) {
+        if (!el || el.dataset.plantelFix) return;
+        el.dataset.plantelFix = 'true';
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            if (typeof window.mostrarInfoPlantel === 'function') {
+                window.mostrarInfoPlantel(plantel);
+            } else {
+                sessionStorage.setItem('mostrarPlantel', plantel);
+                window.location.href = 'index.html';
+            }
+        }, true);
+    }
+
+    function configurarPlanteles() {
+        document.querySelectorAll('.nav-main .dropdown-menu a, .plantel-item').forEach(function (el) {
+            var match = el.textContent.match(/CECATI\s+\d+/i);
+            if (match) enlazarPlantel(el, match[0].toUpperCase());
+        });
+    }
+
+    configurarPlanteles();
+    setTimeout(configurarPlanteles, 300);
+    setTimeout(configurarPlanteles, 1000);
+});
