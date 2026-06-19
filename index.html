@@ -13,915 +13,7 @@
     <meta name="author" content="SCEO Veracruz">
     <link href="https://framework-gb.cdn.gob.mx/gm/v3/assets/images/favicon.ico" rel="shortcut icon">
     <link href="https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .banner-youtube{
-            width:100%;
-            overflow:hidden;
-            background:#fff;
-        }
-
-        .banner-youtube img{
-            width:100%;
-            display:block;
-            height:auto;
-            transition:transform .3s ease;
-        }
-
-        .banner-youtube:hover img{
-            transform:scale(1.01);
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            position: relative;
-        }
-        
-        /* Fondo de marca de agua usando pseudo-elemento */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('imagenes/DGCFT.png');
-            background-repeat: no-repeat;
-            background-position: center bottom;
-            background-attachment: fixed;
-            background-size: 33%;
-            opacity: 0.20;
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        /* Encabezado principal */
-        .header-top {
-            background-color: #691c32;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 1px solid #e0e0e0;
-            color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-        
-        .logo-gob {
-            height: 60px;
-        }
-        
-        /* Banner de subdirección */
-        .nav-subtitle {
-            background-color: #8B1538;
-            padding: 15px 20px;
-            text-align: center;
-            border-bottom: 3px solid #FFD700;
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            z-index: 1;
-        }
-        
-        .nav-subtitle h1 {
-            color: white;
-            font-size: 20px;
-            font-weight: 600;
-            margin: 0;
-        }
-        
-        /* Barra de navegación principal */
-        .nav-main {
-            background-color: #691c32;
-            padding: 0;
-            position: fixed;
-            top: 130px;
-            left: 0;
-            right: 0;
-            z-index: 998;
-        }
-        
-        .nav-main ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-main li {
-            position: relative;
-        }
-        
-        .nav-main a {
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: white;
-            font-size: 14px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .nav-main a:hover {
-            background-color: #6B1028;
-        }
-        
-        /* Estilos para menú desplegable */
-        .dropdown {
-            position: relative;
-        }
-        
-        .dropdown-toggle::after {
-            content: " \25BC";
-            font-size: 12px;
-            margin-left: 5px;
-        }
-        
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #691c32;
-            min-width: 250px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 10000;
-            list-style: none;
-            padding: 10px 0;
-            margin: 0;
-            border: 1px solid #8B1538;
-            border-radius: 5px;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-        
-        .dropdown:hover .dropdown-menu {
-            visibility: visible;
-            opacity: 1;
-            display: block;
-        }
-        
-        .dropdown-menu li {
-            width: 100%;
-        }
-        
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 15px;
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-            white-space: normal;
-            line-height: 1.4;
-        }
-        
-        .dropdown-menu a:hover {
-            background-color: #ddc9a3;
-            color: #333;
-        }
-        
-        /* Contenido principal */
-        .main-content {
-            min-height: 400px;
-            padding: 20px;
-            margin-top: 190px;
-        }
-        
-        /* Estilos para contenido de requisitos */
-        #requisitos-inscripcion {
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        
-        #requisitos-inscripcion h2 {
-            color: #691c32;
-            font-size: 28px;
-            margin-bottom: 20px;
-            text-align: center;
-            border-bottom: 3px solid #FFD700;
-            padding-bottom: 10px;
-        }
-        
-        #requisitos-inscripcion h3 {
-            color: #8B1538;
-            font-size: 20px;
-            margin: 25px 0 15px 0;
-            font-weight: 600;
-        }
-        
-        #requisitos-inscripcion p {
-            margin-bottom: 15px;
-            color: #333;
-            font-size: 16px;
-        }
-        
-        #requisitos-inscripcion ul {
-            margin: 15px 0;
-            padding-left: 30px;
-        }
-        
-        #requisitos-inscripcion li {
-            margin-bottom: 10px;
-            color: #333;
-            font-size: 16px;
-        }
-        
-        /* Estilos para contenido de especialidades */
-        #especialidades-contenido {
-            max-width: 1200px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        
-        #especialidades-contenido h2 {
-            color: #691c32;
-            font-size: 32px;
-            margin-bottom: 30px;
-            text-align: center;
-            border-bottom: 3px solid #FFD700;
-            padding-bottom: 15px;
-        }
-        
-        .especialidades-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .especialidad-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(105, 28, 50, 0.2);
-            border-color: #691c32;
-        }
-        
-        .especialidad-imagen {
-            width: 100%;
-            height: 160px;
-            object-fit: contain;
-            background-color: #f8f9fa;
-            padding: 10px;
-            box-sizing: border-box;
-            transition: transform 0.3s ease;
-        }
-        
-        .especialidad-item:hover .especialidad-imagen {
-            transform: scale(1.05);
-        }
-        
-        .especialidad-header {
-            background-color: #691c32;
-            color: white;
-            padding: 15px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.3s ease;
-            flex: 1;
-        }
-        
-        .especialidad-header:hover {
-            background-color: #8B1538;
-        }
-        
-        .especialidad-header h3 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 600;
-            text-align: center;
-            line-height: 1.3;
-        }
-        
-        .planteles-list {
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            border-top: 1px solid #e9ecef;
-            display: none;
-        }
-        
-        .planteles-list.active {
-            max-height: 700px;
-            padding: 20px;
-            display: block;
-        }
-        
-        .planteles-list[style*="block"] {
-            max-height: 700px;
-            padding: 20px;
-        }
-        
-        .plantel-item {
-            padding: 4px 0;
-            border-bottom: 1px solid #e9ecef;
-            color: #333;
-            font-size: 13px;
-            transition: background-color 0.2s ease;
-        }
-        
-        .plantel-item:last-child {
-            border-bottom: none;
-        }
-        
-        .plantel-item:hover {
-            padding-left: 10px;
-            border-radius: 5px;
-        }
-        
-        .plantel-item strong {
-            color: #691c32;
-            font-weight: 600;
-        }
-        
-        /* Estilos para barra de búsqueda */
-        .search-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        
-        .search-box {
-            display: flex;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            padding: 5px 10px;
-            margin: 0 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .search-box:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-        
-        .search-box:focus-within {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: #FFD700;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-        }
-        
-        #busqueda-especialidad {
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 12px;
-            padding: 5px 8px;
-            width: 180px;
-            outline: none;
-        }
-        
-        #busqueda-especialidad::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 11px;
-        }
-        
-        #busqueda-especialidad:focus::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        
-        #search-btn {
-            background: transparent;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        
-        #search-btn:hover {
-            background-color: rgba(255, 215, 0, 0.2);
-            transform: scale(1.1);
-        }
-        
-        #search-btn svg {
-            width: 14px;
-            height: 14px;
-        }
-        
-        .search-results {
-            position: absolute;
-            top: 100%;
-            right: 10px;
-            background-color: #8B1538;
-            border: 1px solid #FFD700;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            max-height: 300px;
-            overflow-y: auto;
-            z-index: 10001;
-            min-width: 250px;
-            margin-top: 5px;
-        }
-        
-        .search-result-item {
-            padding: 10px 15px;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            font-size: 12px;
-            line-height: 1.3;
-        }
-        
-        .search-result-item:last-child {
-            border-bottom: none;
-        }
-        
-        .search-result-item:hover {
-            background-color: #691c32;
-        }
-        
-        .search-result-item strong {
-            color: #FFD700;
-            font-weight: 600;
-        }
-        
-        .search-no-results {
-            padding: 15px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 12px;
-            text-align: center;
-            font-style: italic;
-        }
-        
-        /* Estilos mínimos para iconos de navegación */
-        .nav-item-with-icon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .nav-icon {
-            width: 24px;
-            height: 24px;
-            margin-bottom: 4px;
-            object-fit: contain;
-        }
-        
-        .dropdown-toggle .nav-item-with-icon span {
-            display: block;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        
-        /* ===========================================
-           DETALLE DE PLANTEL (contenido inyectado por JS)
-           =========================================== */
-        .plantel-info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        .plantel-directorio-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        .plantel-directorio-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            /* Evita que correos largos rompan el layout */
-            overflow-wrap: anywhere;
-            word-break: break-word;
-            min-width: 0;
-        }
-        .plantel-directorio-item p {
-            overflow-wrap: anywhere;
-        }
-        .plantel-especialidades-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
-        }
-        .plantel-especialidad-btn {
-            background: white;
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid #e9ecef;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            min-width: 0;
-        }
-        .plantel-especialidad-btn:hover {
-            background: #f8f9fa;
-            border-color: #691c32;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(105, 28, 50, 0.15);
-        }
-        .plantel-especialidad-btn p {
-            margin: 0;
-            color: #333;
-            font-size: 14px;
-            line-height: 1.4;
-            overflow-wrap: anywhere;
-        }
-
-        /* ===========================================
-           DISEÑO ADAPTABLE (RESPONSIVE)
-           Breakpoints:
-             - 1024px: tablets horizontales / laptops pequeñas
-             -  768px: tablets verticales / móviles grandes
-             -  480px: móviles
-             -  360px: móviles pequeños
-           =========================================== */
-
-        /* ---------- 1024px: Tablets horizontales ---------- */
-        @media (max-width: 1024px) {
-            .nav-subtitle h1 {
-                font-size: 18px;
-            }
-            .nav-main a {
-                padding: 12px 14px;
-                font-size: 13px;
-            }
-            .nav-icon {
-                width: 22px;
-                height: 22px;
-            }
-            .dropdown-toggle .nav-item-with-icon span {
-                font-size: 11px;
-            }
-            #busqueda-especialidad {
-                width: 150px;
-            }
-            .especialidades-grid {
-                grid-template-columns: 1fr 1fr;
-                max-width: 100%;
-                padding: 0 15px;
-            }
-            body::before {
-                background-size: 50%;
-            }
-        }
-
-        /* ---------- 768px: Tablets / móviles grandes ---------- */
-        @media (max-width: 768px) {
-            /* Las cabeceras dejan de ser fijas y vuelven al flujo del documento.
-               Esto evita el problema del margin-top:190px cuando el header crece. */
-            .header-top,
-            .nav-subtitle,
-            .nav-main {
-                position: relative;
-                top: auto;
-                left: auto;
-                right: auto;
-            }
-            .main-content {
-                margin-top: 20px;
-                padding: 15px;
-            }
-
-            .header-top {
-                padding: 8px 12px;
-            }
-            .logo-gob {
-                height: 50px;
-            }
-
-            .nav-subtitle {
-                padding: 12px 15px;
-            }
-            .nav-subtitle h1 {
-                font-size: 15px;
-                line-height: 1.3;
-            }
-
-            /* La barra de navegación permite que sus elementos hagan wrap */
-            .nav-main ul {
-                flex-wrap: wrap;
-                justify-content: space-around;
-            }
-            .nav-main a {
-                padding: 10px 8px;
-                font-size: 12px;
-            }
-            .nav-icon {
-                width: 20px;
-                height: 20px;
-                margin-bottom: 2px;
-            }
-            .dropdown-toggle .nav-item-with-icon span {
-                font-size: 10px;
-            }
-
-            /* === DROPDOWN MENUS EN MÓVIL ===
-               En táctil, :hover queda "pegado" tras el primer tap y eso
-               impide que el toggle funcione como toggle. Aquí desactivamos
-               :hover y :focus-within y usamos una clase .is-open manejada
-               por JS para tener control total del abrir/cerrar.
-               
-               Anclamos los dropdowns a la barra de navegación (no al <li>),
-               y forzamos el ancho con width explícito porque min-width:auto
-               + position:absolute hace que el menú colapse al ancho de la
-               palabra más larga (problema visible en CONTACTO). */
-            .dropdown:hover .dropdown-menu,
-            .dropdown:focus-within .dropdown-menu {
-                visibility: hidden;
-                opacity: 0;
-                display: none;
-            }
-            .dropdown.is-open .dropdown-menu {
-                visibility: visible !important;
-                opacity: 1 !important;
-                display: block !important;
-            }
-            .nav-main {
-                position: relative;
-            }
-            .dropdown {
-                position: static !important;
-            }
-            .dropdown-menu {
-                left: 8px !important;
-                right: 8px !important;
-                width: calc(100vw - 16px) !important;
-                min-width: 0 !important;
-                max-width: calc(100vw - 16px) !important;
-                max-height: 75vh;
-                overflow-y: auto;
-                box-sizing: border-box;
-            }
-            .dropdown-menu li {
-                width: 100%;
-            }
-            .dropdown-menu a {
-                font-size: 13px;
-                padding: 12px 14px;
-                line-height: 1.4;
-                white-space: normal;
-                overflow-wrap: anywhere;
-            }
-            .dropdown-menu a strong {
-                display: block;
-                margin-bottom: 3px;
-            }
-
-            /* La caja de búsqueda toma su propia línea, ancho completo */
-            .search-container {
-                flex-basis: 100%;
-                width: 100%;
-                order: 99;
-                padding: 8px 10px;
-                justify-content: center;
-            }
-            .search-box {
-                margin: 0;
-                flex: 1;
-                max-width: 500px;
-            }
-            #busqueda-especialidad {
-                width: 100%;
-                flex: 1;
-                font-size: 13px;
-            }
-            .search-results {
-                left: 10px;
-                right: 10px;
-                min-width: auto;
-            }
-
-            .especialidades-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 15px;
-                padding: 0 10px;
-            }
-            #especialidades-contenido h2 {
-                font-size: 24px;
-            }
-            .especialidad-imagen {
-                height: 130px;
-            }
-            .especialidad-header {
-                padding: 12px;
-            }
-            .especialidad-header h3 {
-                font-size: 14px;
-            }
-
-            #requisitos-inscripcion h2 {
-                font-size: 22px;
-            }
-            #requisitos-inscripcion h3 {
-                font-size: 17px;
-            }
-            #requisitos-inscripcion p,
-            #requisitos-inscripcion li {
-                font-size: 14px;
-            }
-
-            body::before {
-                background-size: 70%;
-                background-attachment: scroll;
-            }
-
-            /* Detalle de plantel: directorio pasa a 1 col, especialidades a 2 cols */
-            .plantel-directorio-grid {
-                grid-template-columns: 1fr;
-            }
-            .plantel-especialidades-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* ---------- 480px: Móviles ---------- */
-        .nav-subtitle,
-        .nav-main {
-            position: relative !important;
-            top: auto !important;
-            left: auto !important;
-            right: auto !important;
-        }
-
-        .main-content {
-            margin-top: 20px !important;
-        }
-
-        body::before {
-            display: none !important;
-        }
-
-        @media (max-width: 480px) {
-            .header-top {
-                padding: 6px 10px;
-            }
-            .logo-gob {
-                height: 40px;
-            }
-
-            .nav-subtitle {
-                padding: 10px 12px;
-                border-bottom-width: 2px;
-            }
-            .nav-subtitle h1 {
-                font-size: 12.5px;
-                line-height: 1.25;
-            }
-
-            .nav-main a {
-                padding: 8px 5px;
-            }
-            .dropdown-toggle .nav-item-with-icon span {
-                font-size: 9.5px;
-            }
-            .nav-icon {
-                width: 18px;
-                height: 18px;
-            }
-
-            /* Refuerzos al dropdown ya configurado en el breakpoint de 768px */
-            .dropdown-menu a {
-                font-size: 12.5px;
-                padding: 10px 12px;
-            }
-
-            .search-container {
-                padding: 6px 8px;
-            }
-            #busqueda-especialidad {
-                font-size: 13px;
-                padding: 6px 8px;
-            }
-
-            /* Grid de especialidades: una sola columna */
-            .especialidades-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-                padding: 0 5px;
-            }
-            #especialidades-contenido h2 {
-                font-size: 20px;
-                margin-bottom: 20px;
-            }
-            .especialidad-imagen {
-                height: 180px;
-            }
-            .especialidad-header h3 {
-                font-size: 15px;
-            }
-
-            .main-content {
-                padding: 12px;
-                margin-top: 10px;
-            }
-
-            #requisitos-inscripcion h2 {
-                font-size: 19px;
-            }
-            #requisitos-inscripcion h3 {
-                font-size: 15px;
-            }
-            #requisitos-inscripcion p,
-            #requisitos-inscripcion li {
-                font-size: 13px;
-            }
-            #requisitos-inscripcion ul {
-                padding-left: 20px;
-            }
-
-            body::before {
-                background-size: 90%;
-                opacity: 0.12;
-            }
-
-            /* Detalle de plantel: todos los grids colapsan a 1 col */
-            .plantel-info-grid,
-            .plantel-directorio-grid,
-            .plantel-especialidades-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-        }
-
-        /* ---------- 360px: Móviles muy pequeños ---------- */
-        @media (max-width: 360px) {
-            .nav-subtitle h1 {
-                font-size: 11px;
-            }
-            .nav-main a {
-                padding: 6px 3px;
-            }
-            .dropdown-toggle .nav-item-with-icon span {
-                font-size: 8.5px;
-            }
-            .nav-icon {
-                width: 16px;
-                height: 16px;
-            }
-        }
-
-        /* Estilos responsivos para noticias en index.html */
-        @media (max-width: 768px) {
-            #contenedor-noticias-index > div {
-                flex-direction: column !important;
-                gap: 20px !important;
-            }
-            #contenedor-noticias-index > div > div:first-child {
-                flex: 0 0 100% !important;
-            }
-            #contenedor-noticias-index > div > div:first-child img {
-                height: 250px !important;
-            }
-            #contenedor-noticias-index > div > div:last-child {
-                flex: 1 !important;
-            }
-            #contenedor-noticias-index h3 {
-                font-size: 1.4em !important;
-            }
-            #contenedor-noticias-index p {
-                font-size: 14px !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #contenedor-noticias-index > div {
-                padding: 20px !important;
-                gap: 15px !important;
-            }
-            #contenedor-noticias-index > div > div:first-child img {
-                height: 200px !important;
-            }
-            #contenedor-noticias-index h3 {
-                font-size: 1.2em !important;
-                margin-bottom: 10px !important;
-            }
-            #contenedor-noticias-index p {
-                font-size: 13px !important;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <!-- Encabezado principal -->
@@ -1129,7 +221,7 @@
             <div class="especialidades-grid">
                 <!-- Columna 1 -->
                 <div class="especialidad-item">
-                    <img src="imagenes/administracion.png" alt="Administración" class="especialidad-imagen" onclick="togglePlanteles('planteles-administracion')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/administracion.png" alt="Administración" class="especialidad-imagen" onclick="togglePlanteles('planteles-administracion')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-administracion')">
                         <h3>Administración</h3>
                     </div>
@@ -1148,7 +240,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/alimentos.png" alt="Alimentos y bebidas" class="especialidad-imagen" onclick="togglePlanteles('planteles-alimentos')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/alimentos.png" alt="Alimentos y bebidas" class="especialidad-imagen" onclick="togglePlanteles('planteles-alimentos')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-alimentos')">
                         <h3>Alimentos y bebidas</h3>
                     </div>
@@ -1163,7 +255,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/contabilidad.png" alt="Aplicación de normas y proced.contables y fiscales" class="especialidad-imagen" onclick="togglePlanteles('planteles-normas')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/contabilidad.png" alt="Aplicación de normas y proced.contables y fiscales" class="especialidad-imagen" onclick="togglePlanteles('planteles-normas')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-normas')">
                         <h3>Aplicación de normas y proced.contables y fiscales</h3>
                     </div>
@@ -1178,7 +270,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/graficas.png" alt="Artes gráficas" class="especialidad-imagen" onclick="togglePlanteles('planteles-artes-graficas')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/graficas.png" alt="Artes gráficas" class="especialidad-imagen" onclick="togglePlanteles('planteles-artes-graficas')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-artes-graficas')">
                         <h3>Artes gráficas</h3>
                     </div>
@@ -1191,7 +283,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/textil.png" alt="Artesanías con fibras textiles" class="especialidad-imagen" onclick="togglePlanteles('planteles-fibras-textiles')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/textil.png" alt="Artesanías con fibras textiles" class="especialidad-imagen" onclick="togglePlanteles('planteles-fibras-textiles')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-fibras-textiles')">
                         <h3>Artesanías con fibras textiles</h3>
                     </div>
@@ -1203,7 +295,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/pinturas.png" alt="Artesanías con pastas, pinturas y acabados" class="especialidad-imagen" onclick="togglePlanteles('planteles-pastas-pinturas')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/pinturas.png" alt="Artesanías con pastas, pinturas y acabados" class="especialidad-imagen" onclick="togglePlanteles('planteles-pastas-pinturas')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-pastas-pinturas')">
                         <h3>Artesanías con pastas, pinturas y acabados</h3>
                     </div>
@@ -1215,7 +307,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/metalicas.png" alt="Artesanías metálicas" class="especialidad-imagen" onclick="togglePlanteles('planteles-artesanias-metalicas')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/metalicas.png" alt="Artesanías metálicas" class="especialidad-imagen" onclick="togglePlanteles('planteles-artesanias-metalicas')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-artesanias-metalicas')">
                         <h3>Artesanías metálicas</h3>
                     </div>
@@ -1226,7 +318,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/educativa.png" alt="Asistencia educativa inicial y preescolar" class="especialidad-imagen" onclick="togglePlanteles('planteles-asistencia-educativa')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/educativa.png" alt="Asistencia educativa inicial y preescolar" class="especialidad-imagen" onclick="togglePlanteles('planteles-asistencia-educativa')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-asistencia-educativa')">
                         <h3>Asistencia educativa inicial y preescolar</h3>
                     </div>
@@ -1238,7 +330,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/ejecutiva.png" alt="Asistencia ejecutiva" class="especialidad-imagen" onclick="togglePlanteles('planteles-asistencia-ejecutiva')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/ejecutiva.png" alt="Asistencia ejecutiva" class="especialidad-imagen" onclick="togglePlanteles('planteles-asistencia-ejecutiva')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-asistencia-ejecutiva')">
                         <h3>Asistencia ejecutiva</h3>
                     </div>
@@ -1250,7 +342,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/adultos.png" alt="Atención integral a personas adultas mayores" class="especialidad-imagen" onclick="togglePlanteles('planteles-atencion-adultos-mayores')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/adultos.png" alt="Atención integral a personas adultas mayores" class="especialidad-imagen" onclick="togglePlanteles('planteles-atencion-adultos-mayores')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-atencion-adultos-mayores')">
                         <h3>Atención integral a personas adultas mayores</h3>
                     </div>
@@ -1262,7 +354,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/discapacidad.png" alt="Atención integral a personas con discapacidad" class="especialidad-imagen" onclick="togglePlanteles('planteles-atencion-discapacidad')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/discapacidad.png" alt="Atención integral a personas con discapacidad" class="especialidad-imagen" onclick="togglePlanteles('planteles-atencion-discapacidad')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-atencion-discapacidad')">
                         <h3>Atención integral a personas con discapacidad</h3>
                     </div>
@@ -1274,7 +366,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/enfermeria.png" alt="Auxiliar de enfermería" class="especialidad-imagen" onclick="togglePlanteles('planteles-auxiliar-enfermeria')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/enfermeria.png" alt="Auxiliar de enfermería" class="especialidad-imagen" onclick="togglePlanteles('planteles-auxiliar-enfermeria')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-auxiliar-enfermeria')">
                         <h3>Auxiliar de enfermería</h3>
                     </div>
@@ -1286,7 +378,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/confeccion.png" alt="Confección de prendas de vestir" class="especialidad-imagen" onclick="togglePlanteles('planteles-confeccion-prendas')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/confeccion.png" alt="Confección de prendas de vestir" class="especialidad-imagen" onclick="togglePlanteles('planteles-confeccion-prendas')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-confeccion-prendas')">
                         <h3>Confección de prendas de vestir</h3>
                     </div>
@@ -1299,7 +391,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/cosmetologia.png" alt="Cuidados cosmetológicos faciales y corporales" class="especialidad-imagen" onclick="togglePlanteles('planteles-cuidados-cosmetologicos')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/cosmetologia.png" alt="Cuidados cosmetológicos faciales y corporales" class="especialidad-imagen" onclick="togglePlanteles('planteles-cuidados-cosmetologicos')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-cuidados-cosmetologicos')">
                         <h3>Cuidados cosmetológicos faciales y corporales</h3>
                     </div>
@@ -1311,7 +403,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/carroceria.png" alt="Diseño e imagen de la carrocería" class="especialidad-imagen" onclick="togglePlanteles('planteles-diseno-carroceria')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/carroceria.png" alt="Diseño e imagen de la carrocería" class="especialidad-imagen" onclick="togglePlanteles('planteles-diseno-carroceria')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-diseno-carroceria')">
                         <h3>Diseño e imagen de la carrocería</h3>
                     </div>
@@ -1327,7 +419,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/moda.png" alt="Diseño de moda" class="especialidad-imagen" onclick="togglePlanteles('planteles-diseno-moda')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/moda.png" alt="Diseño de moda" class="especialidad-imagen" onclick="togglePlanteles('planteles-diseno-moda')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-diseno-moda')">
                         <h3>Diseño de moda</h3>
                     </div>
@@ -1339,7 +431,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/muebles.png" alt="Diseño y fabricación de muebles de madera" class="especialidad-imagen" onclick="togglePlanteles('planteles-muebles-madera')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/muebles.png" alt="Diseño y fabricación de muebles de madera" class="especialidad-imagen" onclick="togglePlanteles('planteles-muebles-madera')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-muebles-madera')">
                         <h3>Diseño y fabricación de muebles de madera</h3>
                     </div>
@@ -1351,7 +443,7 @@
                 
                 <!-- Columna 2 -->
                 <div class="especialidad-item">
-                    <img src="imagenes/dibujo.png" alt="Elaboración de dibujos arquitectónico e industrial" class="especialidad-imagen" onclick="togglePlanteles('planteles-dibujos-arquitectonicos')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/dibujo.png" alt="Elaboración de dibujos arquitectónico e industrial" class="especialidad-imagen" onclick="togglePlanteles('planteles-dibujos-arquitectonicos')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-dibujos-arquitectonicos')">
                         <h3>Elaboración de dibujos arquitectónico e industrial</h3>
                     </div>
@@ -1363,7 +455,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/artesanias.png" alt="Elaboración y restauración de artesanías de madera" class="especialidad-imagen" onclick="togglePlanteles('planteles-artesanias-madera')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/artesanias.png" alt="Elaboración y restauración de artesanías de madera" class="especialidad-imagen" onclick="togglePlanteles('planteles-artesanias-madera')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-artesanias-madera')">
                         <h3>Elaboración y restauración de artesanías de madera</h3>
                     </div>
@@ -1374,7 +466,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/estilismo.png" alt="Estilismo y diseño de imagen" class="especialidad-imagen" onclick="togglePlanteles('planteles-estilismo-diseno')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/estilismo.png" alt="Estilismo y diseño de imagen" class="especialidad-imagen" onclick="togglePlanteles('planteles-estilismo-diseno')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-estilismo-diseno')">
                         <h3>Estilismo y diseño de imagen</h3>
                     </div>
@@ -1385,7 +477,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/expresion.png" alt="Expresión gráfica digital" class="especialidad-imagen" onclick="togglePlanteles('planteles-expresion-digital')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/expresion.png" alt="Expresión gráfica digital" class="especialidad-imagen" onclick="togglePlanteles('planteles-expresion-digital')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-expresion-digital')">
                         <h3>Expresión gráfica digital</h3>
                     </div>
@@ -1397,7 +489,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/turismo.png" alt="Gestión y venta de servicios turísticos" class="especialidad-imagen" onclick="togglePlanteles('planteles-gestion-turismo')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/turismo.png" alt="Gestión y venta de servicios turísticos" class="especialidad-imagen" onclick="togglePlanteles('planteles-gestion-turismo')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-gestion-turismo')">
                         <h3>Gestión y venta de servicios turísticos</h3>
                     </div>
@@ -1409,7 +501,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/hoteleria.png" alt="Hotelería" class="especialidad-imagen" onclick="togglePlanteles('planteles-hoteleria')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/hoteleria.png" alt="Hotelería" class="especialidad-imagen" onclick="togglePlanteles('planteles-hoteleria')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-hoteleria')">
                         <h3>Hotelería</h3>
                     </div>
@@ -1421,7 +513,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/informatica.png" alt="Informática" class="especialidad-imagen" onclick="togglePlanteles('planteles-informatica')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/informatica.png" alt="Informática" class="especialidad-imagen" onclick="togglePlanteles('planteles-informatica')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-informatica')">
                         <h3>Informática</h3>
                     </div>
@@ -1440,7 +532,7 @@
                 </div>
 
                 <div class="especialidad-item">
-                    <img src="imagenes/ingles.png" alt="ingles" class="especialidad-imagen" onclick="togglePlanteles('planteles-ingles')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/ingles.png" alt="ingles" class="especialidad-imagen" onclick="togglePlanteles('planteles-ingles')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-ingles')">
                         <h3>Inglés</h3>
                     </div>
@@ -1452,7 +544,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/electronico.png" alt="Mantenimiento al sistema electrónico automotriz" class="especialidad-imagen" onclick="togglePlanteles('planteles-mantenimiento-electronico')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/electronico.png" alt="Mantenimiento al sistema electrónico automotriz" class="especialidad-imagen" onclick="togglePlanteles('planteles-mantenimiento-electronico')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-mantenimiento-electronico')">
                         <h3>Mantenimiento al sistema electrónico automotriz</h3>
                     </div>
@@ -1467,7 +559,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/electromecanico.png" alt="Mantenimiento electromecánico del automóvil" class="especialidad-imagen" onclick="togglePlanteles('planteles-mantenimiento-electromecanico')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/electromecanico.png" alt="Mantenimiento electromecánico del automóvil" class="especialidad-imagen" onclick="togglePlanteles('planteles-mantenimiento-electromecanico')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-mantenimiento-electromecanico')">
                         <h3>Mantenimiento electromecánico del automóvil</h3>
                     </div>
@@ -1483,7 +575,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/maquinas.png" alt="Máquinas-Herramienta" class="especialidad-imagen" onclick="togglePlanteles('planteles-maquinas-herramienta')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/maquinas.png" alt="Máquinas-Herramienta" class="especialidad-imagen" onclick="togglePlanteles('planteles-maquinas-herramienta')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-maquinas-herramienta')">
                         <h3>Máquinas-Herramienta</h3>
                     </div>
@@ -1496,7 +588,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/diesel.png" alt="Mecánica diésel" class="especialidad-imagen" onclick="togglePlanteles('planteles-mecanica-diesel')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/diesel.png" alt="Mecánica diésel" class="especialidad-imagen" onclick="togglePlanteles('planteles-mecanica-diesel')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-mecanica-diesel')">
                         <h3>Mecánica diésel</h3>
                     </div>
@@ -1511,7 +603,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/refri.png" alt="Refrigeración y aire acondicionado" class="especialidad-imagen" onclick="togglePlanteles('planteles-refrigeracion-aire-acondicionado')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/refri.png" alt="Refrigeración y aire acondicionado" class="especialidad-imagen" onclick="togglePlanteles('planteles-refrigeracion-aire-acondicionado')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-refrigeracion-aire-acondicionado')">
                         <h3>Refrigeración y aire acondicionado</h3>
                     </div>
@@ -1526,7 +618,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/sastre.png" alt="Sastrería" class="especialidad-imagen" onclick="togglePlanteles('planteles-sastreria')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/sastre.png" alt="Sastrería" class="especialidad-imagen" onclick="togglePlanteles('planteles-sastreria')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-sastreria')">
                         <h3>Sastrería</h3>
                     </div>
@@ -1538,7 +630,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/soldadura.png" alt="Soldadura y pailería" class="especialidad-imagen" onclick="togglePlanteles('planteles-soldadura-paileria')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/soldadura.png" alt="Soldadura y pailería" class="especialidad-imagen" onclick="togglePlanteles('planteles-soldadura-paileria')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-soldadura-paileria')">
                         <h3>Soldadura y pailería</h3>
                     </div>
@@ -1551,7 +643,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/electrica.png" alt="Soporte a instalac. eléctricas y motores eléctricos" class="especialidad-imagen" onclick="togglePlanteles('planteles-soporte-electricos')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/electrica.png" alt="Soporte a instalac. eléctricas y motores eléctricos" class="especialidad-imagen" onclick="togglePlanteles('planteles-soporte-electricos')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-soporte-electricos')">
                         <h3>Soporte a instalac. eléctricas y motores eléctricos</h3>
                     </div>
@@ -1564,7 +656,7 @@
                 </div>
                 
                 <div class="especialidad-item">
-                    <img src="imagenes/soporte.png" alt="Soporte técnico a equipos y sistemas computacionales" class="especialidad-imagen" onclick="togglePlanteles('planteles-soporte-computacionales')" style="cursor: pointer;">
+                    <img loading="lazy" src="imagenes/soporte.png" alt="Soporte técnico a equipos y sistemas computacionales" class="especialidad-imagen" onclick="togglePlanteles('planteles-soporte-computacionales')" style="cursor: pointer;">
                     <div class="especialidad-header" onclick="togglePlanteles('planteles-soporte-computacionales')">
                         <h3>Soporte técnico a equipos y sistemas computacionales</h3>
                     </div>
@@ -1993,9 +1085,9 @@
             
             let html = `
                 <div style="text-align: center; margin-bottom: 30px;">
-                    <img src="imagenes/${imagenPlantel}" alt="${plantelNombre}" style="width: 70%; height: auto; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    <img loading="lazy" src="imagenes/${imagenPlantel}" alt="${plantelNombre}" style="width: 70%; height: auto; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
                     <h1 style="color: #691c32; font-size: 2.5em; margin-bottom: 10px;">
-                        <img src="imagenes/${iconoPlantel}" alt="${plantelNombre}" style="width: 72px; height: 101px; margin-right: 15px; vertical-align: middle">
+                        <img loading="lazy" src="imagenes/${iconoPlantel}" alt="${plantelNombre}" style="width: 72px; height: 101px; margin-right: 15px; vertical-align: middle">
                         ${plantelNombre}
                     </h1>
                     <div style="border-bottom: 3px solid #FFD700; width: 100px; margin: 0 auto;"></div>
@@ -2186,7 +1278,7 @@
             let html = `
                 <div style="text-align: center; margin-bottom: 30px;">
                     <h1 style="color: #691c32; font-size: 2.5em; margin-bottom: 10px;">
-                        <img src="imagenes/${imagenEspecialidad}" alt="${nombreEspecialidad}" style="width: 50px; height: 50px; margin-right: 15px; vertical-align: middle; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <img loading="lazy" src="imagenes/${imagenEspecialidad}" alt="${nombreEspecialidad}" style="width: 50px; height: 50px; margin-right: 15px; vertical-align: middle; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                         ${nombreEspecialidad}
                     </h1>
                     <div style="border-bottom: 3px solid #FFD700; width: 100px; margin: 0 auto;"></div>
