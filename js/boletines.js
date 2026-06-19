@@ -1,6 +1,23 @@
 // Base de datos de noticias
         const noticias = [
             {
+                id: 12,
+                titulo: "“Macha Gourmet”, el emprendimiento que lleva el talento de Telebachillerato Cosamaloapan a la etapa estatal",
+                textoPrevio: "​​Estudiantes del Telebachillerato Cosamaloapan representaron con orgullo a su institución en el encuentro estatal “TEBAEV Conecta”, celebrado en Coatzacoalcos, donde presentaron una innovadora línea de salsas artesanales desarrollada con el acompañamiento del CECATI No. 159.",
+                textoCompleto: "Con creatividad, innovación y espíritu emprendedor, estudiantes de cuarto semestre del Telebachillerato Cosamaloapan (clave 30ETH0427Z) participaron en el encuentro estatal “TEBAEV Conecta”, realizado en la ciudad de Coatzacoalcos, Veracruz, donde presentaron su proyecto gastronómico denominado “Macha Gourmet”, una línea de salsas machas artesanales elaboradas con ingredientes naturales y procesos de producción orientados a su comercialización.<br><br>El proyecto fue desarrollado en el marco del taller de Alimentos y Bebidas que se imparte en el plantel, gracias al trabajo coordinado entre el Telebachillerato Cosamaloapan y el CECATI No. 159, a través de las Acciones Móviles, estrategia mediante la cual personal especializado se traslada al municipio para fortalecer las competencias técnicas y prácticas de los estudiantes.<br><br>En este proceso destacó la participación del Lic. Irving Obed Delcompare Garnica, instructor de la especialidad de Alimentos y Bebidas del CECATI No. 159, quien brindó capacitación, asesoría y acompañamiento a los alumnos para la consolidación de este emprendimiento escolar.<br><br>Durante la demostración, los jóvenes presentaron cuatro variedades de salsa macha: ajo con ajonjolí, cacahuate, arándano y pepita de calabaza, productos que despertaron el interés de asistentes, docentes y autoridades educativas por su calidad, sabor e innovación.<br><br>La exhibición reunió a representantes de diversas zonas escolares del subsistema de Telebachillerato de la región sur del estado, convirtiéndose en un espacio para impulsar el emprendimiento juvenil, el intercambio de experiencias y la aplicación práctica de los conocimientos adquiridos en el aula.<br><br>El stand de “Macha Gourmet” recibió la visita de autoridades del Telebachillerato de Veracruz, encabezadas por el Oscar Guzmán de Paz, quien reconoció el talento, la iniciativa y el compromiso de los estudiantes participantes.<br><br>Asimismo, la comunidad educativa expresó su agradecimiento al profesor Honorato Alfonsín Salinas por el respaldo brindado para impulsar este proyecto y favorecer la participación de los estudiantes en espacios de proyección estatal.<br><br>Bajo la coordinación del director del plantel, profesor Pablo Muñoz Leyva, y con el apoyo de los docentes Roberto Carlos Azamar Delgado, Elodia Martínez Vicencio, Abraham Xalate Chagala, Israel Espinoza Moreno e Irving Obed Delcompare Garnica, el Telebachillerato Cosamaloapan continúa fortaleciendo la formación integral de sus estudiantes mediante proyectos que promueven la innovación, el trabajo colaborativo y el desarrollo de habilidades para la vida y el trabajo.<br><br>Con acciones como esta, el Telebachillerato Cosamaloapan reafirma su compromiso con la educación de calidad y la generación de oportunidades que permitan a las y los jóvenes transformar sus conocimientos en proyectos con impacto social y productivo.",
+                imagen: "imagenes/noticias/noticia12.jpg",
+                imagenesAdicionales: [
+                    "imagenes/noticias/noticia12-1.jpg",
+                    "imagenes/noticias/noticia12-2.jpg",
+                    "imagenes/noticias/noticia12-3.jpg",
+                    "imagenes/noticias/noticia12-4.jpg",
+                    "imagenes/noticias/noticia12-5.jpg",
+                ],
+                fecha: "17-06-2026",
+                mes: "Junio",
+                anio: "2026"
+            },
+            {
                 id: 11,
                 titulo: "Sumando esfuerzos por la capacitación y el bienestar en la Gustavo A. Madero",
                 textoPrevio: "​​El día de hoy, el Director General de la DGCFT, el Dr. Francisco Garduño Yáñez, sostuvo una exitosa y productiva reunión de trabajo con la Diputada Local por la Alcaldía Gustavo A. Madero, Yuriri Ayala Zúñiga.",
@@ -277,6 +294,7 @@
         window.regresarBoletines = regresarBoletines;
         window.abrirImagenEnGrande = abrirImagenEnGrande;
         window.abrirNoticiaEnNuevaVentana = abrirNoticiaEnNuevaVentana;
+        window.irABoletinesConNoticia = irABoletinesConNoticia;
 
         // Función para generar boletines dinámicamente
         function generarBoletines() {
@@ -297,8 +315,11 @@
             `).join('');
         }
 
-        // Generar boletines al cargar la página
-        document.addEventListener('DOMContentLoaded', generarBoletines);
+        // Generar boletines al cargar la página.
+        // NOTA: ya no se llama aquí directamente con un addEventListener propio;
+        // se invoca desde el bloque de inicialización único más abajo, para
+        // poder decidir primero si hay que abrir una noticia en lugar de
+        // pintar el grid (ver explicación junto al bloque de localStorage).
 
 
 
@@ -311,7 +332,7 @@
             const noticiasRecientes = noticias.slice(0, 2);
 
             contenedor.innerHTML = noticiasRecientes.map(noticia => `
-                <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto; cursor: pointer; display: flex; gap: 30px;" onclick="mostrarDetalleNoticia(${noticia.id})">
+                <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto; cursor: pointer; display: flex; gap: 30px;" onclick="irABoletinesConNoticia(${noticia.id})">
                     <div style="flex: 0 0 50%;">
                         <img src="${noticia.imagen}" alt="${noticia.titulo}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 10px;">
                     </div>
@@ -330,17 +351,57 @@
             window.open('boletines.html', '_blank');
         }
 
+        // Función para ir a boletines.html con una noticia específica
+        function irABoletinesConNoticia(id) {
+            localStorage.setItem('mostrarNoticia', id);
+            window.location.href = 'boletines.html';
+        }
+
         // Generar noticias en index.html al cargar la página
         document.addEventListener('DOMContentLoaded', generarNoticiasIndex);
 
-        // Verificar localStorage para mostrar noticia específica al cargar boletines.html
-        document.addEventListener('DOMContentLoaded', function() {
+        // ------------------------------------------------------------------
+        // Inicialización de boletines.html
+        // ------------------------------------------------------------------
+        // Antes este flujo eran dos listeners separados: uno que SIEMPRE
+        // generaba el grid de boletines, y otro que después comprobaba si
+        // había que abrir una noticia y, de ser así, la mostraba encima.
+        // Eso causaba un "flash" visible de la sección Boletines justo antes
+        // de mostrar la nota (porque el grid ya se había pintado y se veía
+        // un instante antes de que el detalle lo tapara).
+        //
+        // Ahora se decide PRIMERO si hay una noticia pendiente por abrir
+        // (vía localStorage). El grid de boletines se genera siempre (lo
+        // necesitamos listo por si el usuario luego da "Regresar a
+        // Boletines"), pero si hay una noticia pendiente, el contenedor del
+        // grid se mantiene oculto desde el principio y se muestra
+        // directamente el detalle, sin que el grid llegue a verse.
+        document.addEventListener('DOMContentLoaded', function () {
+            const esPaginaBoletines = !!document.getElementById('contenedor-boletines');
             const noticiaId = localStorage.getItem('mostrarNoticia');
+            const abrirNotaDirecta = esPaginaBoletines && !!noticiaId;
+
+            // Siempre limpiamos el flag para que no quede "pegado" y afecte
+            // a una visita posterior a cualquier otra página (index, histórico).
             if (noticiaId) {
                 localStorage.removeItem('mostrarNoticia');
-                setTimeout(function() {
-                    mostrarDetalleNoticia(parseInt(noticiaId));
-                }, 100);
+            }
+
+            if (abrirNotaDirecta) {
+                // Ocultamos el contenedor del grid ANTES de generarlo, para
+                // que nunca llegue a pintarse visible en pantalla.
+                const contenedor = document.getElementById('contenedor-boletines');
+                if (contenedor && contenedor.parentElement) {
+                    contenedor.parentElement.style.display = 'none';
+                }
+            }
+
+            // Generamos el grid igualmente (oculto o no) para que esté listo
+            // si el usuario presiona "Regresar a Boletines" desde la nota.
+            generarBoletines();
+
+            if (abrirNotaDirecta) {
+                mostrarDetalleNoticia(parseInt(noticiaId, 10));
             }
         });
 

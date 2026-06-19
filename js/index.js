@@ -14,6 +14,12 @@
             // Ocultar sección de noticias recientes
             document.getElementById("seccion-noticias-recientes").style.display = "none";
             
+            // Ocultar detalle de noticia
+            const noticiaDetalle = document.getElementById("noticia-detalle");
+            if (noticiaDetalle) {
+                noticiaDetalle.style.display = "none";
+            }
+            
             // Limpiar selección de especialidad previa
             document.getElementById("especialidad-detalle").innerHTML = '';
             
@@ -36,6 +42,12 @@
             
             // Ocultar sección de noticias recientes
             document.getElementById("seccion-noticias-recientes").style.display = "none";
+            
+            // Ocultar detalle de noticia
+            const noticiaDetalle = document.getElementById("noticia-detalle");
+            if (noticiaDetalle) {
+                noticiaDetalle.style.display = "none";
+            }
             
             // Limpiar selección de especialidad previa
             document.getElementById("especialidad-detalle").innerHTML = '';
