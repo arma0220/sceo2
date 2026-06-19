@@ -8,7 +8,7 @@
     <meta http-equiv="Expires" content="0">
     <meta name="version" content="1.0">
     <title>Boletines - SUBDIRECCIÓN DE ENLACE OPERATIVO DEL ESTADO DE VERACRUZ</title>
-    <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
+    <link href="https://framework-gb.cdn.gob.mx/gm/v3/assets/images/favicon.ico" rel="shortcut icon">
     <link href="https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/inline.css">
@@ -17,10 +17,6 @@
 
 <body>
     <!-- Encabezado principal -->
-    <header class="header-top">
-        <img src="imagenes/gob_mx.png" alt="Gobierno de México" class="logo-gob">
-    </header>
-
     <!-- Banner de subdirección -->
     <div class="nav-subtitle">
         <h1>SUBDIRECCIÓN DE LA COORDINACIÓN DE ENLACE OPERATIVO DEL ESTADO DE VERACRUZ</h1>
@@ -30,7 +26,7 @@
     <nav class="nav-main">
         <ul>
             <li>
-                <a href="index.html">
+                <a href="index.html" onclick="localStorage.removeItem('mostrarNoticia'); window.location.href='index.html'; return false;">
                     <div class="nav-item-with-icon">
                         <span>INICIO</span>
                         <img src="imagenes/inicio.png" alt="DGCFT" class="nav-icon">
@@ -46,7 +42,7 @@
                 </a>
             </li>
             <li class="dropdown">
-                <a href="#" class="nav-dropdown-toggle">
+                <a href="#" class="dropdown-toggle">
                     <div class="nav-item-with-icon">
                         <img src="imagenes/oferta.png" alt="OFERTA EDUCATIVA" class="nav-icon">
                         <span>OFERTA EDUCATIVA</span>
@@ -59,7 +55,7 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="nav-dropdown-toggle">
+                <a href="#" class="dropdown-toggle">
                     <div class="nav-item-with-icon">
                         <img src="imagenes/planteles.png" alt="PLANTELES" class="nav-icon">
                         <span>PLANTELES</span>
@@ -80,7 +76,7 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="nav-dropdown-toggle">
+                <a href="#" class="dropdown-toggle">
                     <div class="nav-item-with-icon">
                         <img src="imagenes/contacto.png" alt="CONTACTO" class="nav-icon">
                         <span>CONTACTO</span>
@@ -109,7 +105,7 @@
                     </a></li>
                     <li><a href="mailto:ver.vinc@dgcft.sems.gob.mx">
                         <strong>Auxiliar del Área de Vinculación con el Sector Productivo</strong><br>
-                        Titular: Sara Carolina Benítez Ramírez<br>
+                        Titular: Esmeralda<br>
                         Correo electrónico: ver.vinc@dgcft.sems.gob.mx
                     </a></li>
                 </ul>
@@ -161,42 +157,10 @@
             <img id="modal-img" src="" alt="Imagen en grande" style="max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px;">
         </div>
     </main>
-    <script src="js/site.js"></script>
+    <script src="js/site.js?v=20260618-site-source"></script>
     <script src="js/boletines.js"></script>
     <script src="js/historico-events.js"></script>
     <script src="js/fixes.js"></script>
     <script src="https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js"></script>
-    <style>
-        /* ── Override Bootstrap/gob.mx dropdown styles ── */
-        .nav-main .dropdown-menu,
-        .nav-main ul.dropdown-menu {
-            background-color: #691c32 !important;
-            border: 1px solid #8B1538 !important;
-            border-radius: 5px !important;
-        }
-        .nav-main .dropdown-menu li a,
-        .nav-main .dropdown-menu > li > a,
-        .nav-main ul.dropdown-menu li a {
-            color: #ffffff !important;
-            background-color: transparent !important;
-            font-size: 14px !important;
-            font-weight: 500 !important;
-            padding: 10px 15px !important;
-            display: block !important;
-            line-height: 1.4 !important;
-            white-space: normal !important;
-        }
-        .nav-main .dropdown-menu li a strong {
-            color: #ffffff !important;
-        }
-        .nav-main .dropdown-menu li a:hover,
-        .nav-main .dropdown-menu > li > a:hover {
-            background-color: #ddc9a3 !important;
-            color: #333333 !important;
-        }
-        .nav-main .dropdown-menu li a:hover strong {
-            color: #333333 !important;
-        }
-    </style>
 </body>
 </html>

@@ -8,13 +8,33 @@
     <meta http-equiv="Expires" content="0">
     <meta name="version" content="1.0">
     <title>SUBDIRECCIÓN DE ENLACE OPERATIVO DEL ESTADO DE VERACRUZ</title>
-    <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
+    <meta name="description" content="Sitio oficial de la Subdirección de la Coordinación de Enlace Operativo del Estado de Veracruz. Información de CECATI, especialidades, requisitos de inscripción y noticias.">
+    <meta name="keywords" content="sceo veracruz, sceo ver, sceoveracruz, sceover, CECATI Veracruz, capacitación para el trabajo veracruz, DGCFT, cursos, Veracruz">
+    <meta name="author" content="SCEO Veracruz">
+    <link href="https://framework-gb.cdn.gob.mx/gm/v3/assets/images/favicon.ico" rel="shortcut icon">
     <link href="https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        .banner-youtube{
+            width:100%;
+            overflow:hidden;
+            background:#fff;
+        }
+
+        .banner-youtube img{
+            width:100%;
+            display:block;
+            height:auto;
+            transition:transform .3s ease;
+        }
+
+        .banner-youtube:hover img{
+            transform:scale(1.01);
         }
         
         body {
@@ -125,7 +145,7 @@
             position: relative;
         }
         
-        .nav-dropdown-toggle::after {
+        .dropdown-toggle::after {
             content: " \25BC";
             font-size: 12px;
             margin-left: 5px;
@@ -468,7 +488,7 @@
             object-fit: contain;
         }
         
-        .nav-dropdown-toggle .nav-item-with-icon span {
+        .dropdown-toggle .nav-item-with-icon span {
             display: block;
             font-size: 12px;
             font-weight: 500;
@@ -551,7 +571,7 @@
                 width: 22px;
                 height: 22px;
             }
-            .nav-dropdown-toggle .nav-item-with-icon span {
+            .dropdown-toggle .nav-item-with-icon span {
                 font-size: 11px;
             }
             #busqueda-especialidad {
@@ -613,7 +633,7 @@
                 height: 20px;
                 margin-bottom: 2px;
             }
-            .nav-dropdown-toggle .nav-item-with-icon span {
+            .dropdown-toggle .nav-item-with-icon span {
                 font-size: 10px;
             }
 
@@ -737,6 +757,22 @@
         }
 
         /* ---------- 480px: Móviles ---------- */
+        .nav-subtitle,
+        .nav-main {
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+        }
+
+        .main-content {
+            margin-top: 20px !important;
+        }
+
+        body::before {
+            display: none !important;
+        }
+
         @media (max-width: 480px) {
             .header-top {
                 padding: 6px 10px;
@@ -757,7 +793,7 @@
             .nav-main a {
                 padding: 8px 5px;
             }
-            .nav-dropdown-toggle .nav-item-with-icon span {
+            .dropdown-toggle .nav-item-with-icon span {
                 font-size: 9.5px;
             }
             .nav-icon {
@@ -837,7 +873,7 @@
             .nav-main a {
                 padding: 6px 3px;
             }
-            .nav-dropdown-toggle .nav-item-with-icon span {
+            .dropdown-toggle .nav-item-with-icon span {
                 font-size: 8.5px;
             }
             .nav-icon {
@@ -886,15 +922,18 @@
             }
         }
     </style>
-    <link href="https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css" rel="stylesheet">
 </head>
 <body>
     <!-- Encabezado principal -->
-    <header class="header-top">
-        <img src="imagenes/gob_mx.png" alt="Gobierno de México" class="logo-gob">
-    </header>
+    <!-- Banner YouTube -->
+    <div class="banner-youtube">
+        <a href="https://www.youtube.com/watch?v=pUgUJtr7Idk&t=2s" target="_blank">
+            <img src="imagenes/banner-youtube.jpg"
+                alt="Canal Oficial de YouTube">
+        </a>
+    </div>
 
-    <!-- Banner de subdirección -->
+   <!-- Banner de subdirección -->
     <div class="nav-subtitle">
         <h1>SUBDIRECCIÓN DE LA COORDINACIÓN DE ENLACE OPERATIVO DEL ESTADO DE VERACRUZ</h1>
     </div>
@@ -918,8 +957,13 @@
                     </div>
                 </a>
             </li>
+
+
+
+
+            <!-- DATOS PARA OFERTA EDUCATIVA -->
             <li class="dropdown">
-                <a href="#" class="nav-dropdown-toggle">
+                <a href="#" class="dropdown-toggle">
                     <div class="nav-item-with-icon">
                         <img src="imagenes/oferta.png" alt="OFERTA EDUCATIVA" class="nav-icon">
                         <span>OFERTA EDUCATIVA</span>
@@ -931,8 +975,14 @@
                     <li><a href="#" onclick="mostrarRequisitos(); return false;">REQUISITOS DE INSCRIPCIÓN</a></li>
                 </ul>
             </li>
+
+
+
+
+            
+            <!-- DATOS PARA PLANTELES -->
             <li class="dropdown">
-                <a href="#" class="nav-dropdown-toggle">
+                <a href="#" class="dropdown-toggle">
                     <div class="nav-item-with-icon">
                         <img src="imagenes/planteles.png" alt="PLANTELES" class="nav-icon">
                         <span>PLANTELES</span>
@@ -952,8 +1002,14 @@
                     <li><a href="javascript:void(0)">CECATI 170 Orizaba</a></li>
                 </ul>
             </li>
+
+
+
+
+            
+            <!-- DATOS PARA CONTACTO SCEO -->
             <li class="dropdown">
-                <a href="#" class="nav-dropdown-toggle">
+                <a href="#" class="dropdown-toggle">
                     <div class="nav-item-with-icon">
                         <img src="imagenes/contacto.png" alt="CONTACTO" class="nav-icon">
                         <span>CONTACTO</span>
@@ -977,16 +1033,23 @@
                     </a></li>
                     <li><a href="mailto:ver.plan@dgcft.sems.gob.mx">
                         <strong>Auxiliar del Área de Planeación y Evaluación</strong><br>
-                        Titular: Eduardo Manuel Rodríguez Azueta<br>
+                        Titular: Irene Margarita Vargas Camarillo<br>
                         Correo electrónico: ver.plan@dgcft.sems.gob.mx
                     </a></li>
                     <li><a href="mailto:ver.vinc@dgcft.sems.gob.mx">
                         <strong>Auxiliar del Área de Vinculación con el Sector Productivo</strong><br>
-                        Titular: Sara Carolina Benítez Ramírez<br>
+                        Titular: Esmeralda Zarate Chávez<br>
                         Correo electrónico: ver.vinc@dgcft.sems.gob.mx
                     </a></li>
                 </ul>
             </li>
+
+
+
+
+
+
+            <!-- DATOS PARA NOTICIAS -->
              <li id="nav-noticias">
                 <a href="boletines.html">
                     <div class="nav-item-with-icon">
@@ -995,6 +1058,12 @@
                     </div>
                 </a>
             </li>
+
+
+
+
+
+
             <li class="search-container">
                 <div class="search-box">
                     <input type="text" id="busqueda-especialidad" placeholder="BUSQUEDA DE ESPECIALIDAD" autocomplete="off">
@@ -1595,6 +1664,12 @@
             document.getElementById("especialidad-info").style.display = "none";
             document.getElementById("requisitos-inscripcion").style.display = "block";
             
+            // Ocultar detalle de noticia
+            const noticiaDetalle = document.getElementById("noticia-detalle");
+            if (noticiaDetalle) {
+                noticiaDetalle.style.display = "none";
+            }
+            
             // Limpiar selección de especialidad previa
             document.getElementById("especialidad-detalle").innerHTML = '';
             
@@ -1615,6 +1690,12 @@
             document.getElementById("plantel-info").style.display = "none";
             document.getElementById("especialidad-info").style.display = "none";
             document.getElementById("especialidades-contenido").style.display = "block";
+            
+            // Ocultar detalle de noticia
+            const noticiaDetalle = document.getElementById("noticia-detalle");
+            if (noticiaDetalle) {
+                noticiaDetalle.style.display = "none";
+            }
             
             // Limpiar selección de especialidad previa
             document.getElementById("especialidad-detalle").innerHTML = '';
@@ -1698,6 +1779,7 @@
             { nombre: "Soldadura y pailería", id: "planteles-soldadura-paileria" },
             { nombre: "Soporte a instalac. eléctricas y motores eléctricos", id: "planteles-soporte-electricos" },
             { nombre: "Soporte técnico a equipos y sistemas computacionales", id: "planteles-soporte-computacionales" },
+            
         ];
         
         let searchTimeout;
@@ -2447,7 +2529,13 @@
             };
         }
 
-        // Base de datos de información de planteles actualizada
+
+
+
+
+
+
+        // DIRECTORIO PLANTELES
         const infoPlanteles = {
             'SCEO Veracruz': {
                 cct: '30ACC0001N',
@@ -2491,7 +2579,7 @@
                 telefono: '(921) 218-51-15',
                 directorio: {
                     direccion: {
-                        titular: 'Lila Inurreta Fernández (Responsable de las Funciones)',
+                        titular: 'Lila Inurreta Fernández <br>(Responsable de las Funciones)',
                         email: 'cecati31.dir@dgcft.sems.gob.mx'
                     },
                     capacitacion: {
@@ -2520,11 +2608,11 @@
                 telefono: '(272) 727-60-44',
                 directorio: {
                     direccion: {
-                        titular: 'Rolando Juan García Martínez (Responsable de las Funciones)',
+                        titular: 'Rolando Juan García Martínez <br>(Responsable de las Funciones)',
                         email: 'cecati33.dir@dgcft.sems.gob.mx'
                     },
                     capacitacion: {
-                        titular: 'María Esther Flores Contreras (Responsable de las Funciones)',
+                        titular: 'María Esther Flores Contreras <br>(Responsable de las Funciones)',
                         email: 'cecati33.cap@dgcft.sems.gob.mx'
                     },
                     vinculacion: {
@@ -2532,7 +2620,7 @@
                         email: 'cecati33.vinc@dgcft.sems.gob.mx'
                     },
                     administrativo: {
-                        titular: 'Catalina Vanessa Carrasco Páez (Responsable de las Funciones)',
+                        titular: 'Catalina Vanessa Carrasco Páez <br>(Responsable de las Funciones)',
                         email: 'cecati33.admvo@dgcft.sems.gob.mx'
                     }
                 },
@@ -2552,15 +2640,15 @@
                         email: 'cecati42.dir@dgcft.sems.gob.mx'
                     },
                     capacitacion: {
-                        titular: 'Andrea Esquivel Ramón (Responsable de las Funciones)',
+                        titular: 'Andrea Esquivel Ramón <br>(Responsable de las Funciones)',
                         email: 'cecati42.cap@dgcft.sems.gob.mx'
                     },
                     vinculacion: {
-                        titular: 'Adrián Hernández Ravelo (Responsable de las Funciones)',
+                        titular: 'Adrián Hernández Ravelo <br>(Responsable de las Funciones)',
                         email: 'cecati42.vinc@dgcft.sems.gob.mx'
                     },
                     administrativo: {
-                        titular: 'Juan Ignacio Palacios Hernández (Responsable de las Funciones)',
+                        titular: 'Juan Ignacio Palacios Hernández <br>(Responsable de las Funciones)',
                         email: 'cecati42.admvo@dgcft.sems.gob.mx'
                     }
                 },
@@ -2576,7 +2664,7 @@
                 telefono: '(271) 714-77-94',
                 directorio: {
                     direccion: {
-                        titular: 'María Teresa Aguirre Jiménez (Responsable de las Funciones)',
+                        titular: 'María Teresa Aguirre Jiménez <br>(Responsable de las Funciones)',
                         email: 'cecati49.dir@dgcft.sems.gob.mx'
                     },
                     capacitacion: {
@@ -2604,15 +2692,15 @@
                 telefono: '(922) 221-03-83',
                 directorio: {
                     direccion: {
-                        titular: 'Mateo Sinuhe Peña Morales (Responsable de las Funciones)',
+                        titular: 'Mateo Sinuhe Peña Morales <br>(Responsable de las Funciones)',
                         email: 'cecati72.dir@dgcft.sems.gob.mx'
                     },
                     capacitacion: {
-                        titular: 'Héctor Isaac Zamudio Tenorio (Responsable de las Funciones)',
+                        titular: 'Héctor Isaac Zamudio Tenorio <br>(Responsable de las Funciones)',
                         email: 'cecati72.cap@dgcft.sems.gob.mx'
                     },
                     vinculacion: {
-                        titular: 'Mayte Lara Escobar (Responsable de las Funciones)',
+                        titular: 'Mayte Lara Escobar <br>(Responsable de las Funciones)',
                         email: 'cecati72.vinc@dgcft.sems.gob.mx'
                     },
                     administrativo: {
@@ -2644,7 +2732,7 @@
                         email: 'cecati103.vinc@dgcft.sems.gob.mx'
                     },
                     administrativo: {
-                        titular: 'Adán Ovando Rodríguez (Responsable de las Funciones)',
+                        titular: 'Adán Ovando Rodríguez <br>(Responsable de las Funciones)',
                         email: 'cecati103.admvo@dgcft.sems.gob.mx'
                     }
                 },
@@ -2660,11 +2748,11 @@
                 telefono: '(228) 810-65-16',
                 directorio: {
                     direccion: {
-                        titular: 'Maribel López Hernández (Responsable de las Funciones)',
+                        titular: 'Maribel López Hernández <br>(Responsable de las Funciones)',
                         email: 'cecati151.dir@dgcft.sems.gob.mx'
                     },
                     capacitacion: {
-                        titular: 'Maribel López Hernández (Responsable de las Funciones)',
+                        titular: 'Maribel López Hernández <br>(Responsable de las Funciones)',
                         email: 'cecati151.cap@dgcft.sems.gob.mx'
                     },
                     vinculacion: {
@@ -2716,7 +2804,7 @@
                 telefono: '(272) 727-46-44',
                 directorio: {
                     direccion: {
-                        titular: 'Héctor Juan Hernández',
+                        titular: 'Héctor Juan Hernández (Responsable de las Funciones)',
                         email: 'cecati168.dir@dgcft.sems.gob.mx'
                     },
                     capacitacion: {
@@ -2728,7 +2816,7 @@
                         email: 'cecati168.vinc@dgcft.sems.gob.mx'
                     },
                     administrativo: {
-                        titular: 'Cecilia Martínez Chávez (Responsable de las Funciones)',
+                        titular: 'Cecilia Martínez Chávez <br>(Responsable de las Funciones)',
                         email: 'cecati168.admvo@dgcft.sems.gob.mx'
                     }
                 },
@@ -2748,7 +2836,7 @@
                         email: 'cecati170.dir@dgcft.sems.gob.mx'
                     },
                     capacitacion: {
-                        titular: 'Óscar Armando Munguía Hernández',
+                        titular: 'Vacante',
                         email: 'cecati170.cap@dgcft.sems.gob.mx'
                     },
                     vinculacion: {
@@ -2763,6 +2851,13 @@
                 especialidades: ['Administración', 'Alimentos y Bebidas', 'Asistencia Ejecutiva', 'Confección de Prendas de Vestir', 'Cosmetología Integral', 'Diseño de Moda', 'Elaboración de Dibujos Arquitectónico e Industrial', 'Estilismo y Diseño de Imagen', 'Gestión y Venta de Servicios Turísticos', 'Hotelería', 'Informática', 'Inglés', 'Soldadura y Pailería', 'Soporte Técnico a Equipos y Sistemas Computacionales']
             }
         };
+
+
+
+
+
+
+
         
         // Hacer funciones disponibles globalmente
         window.mostrarInfoPlantel = mostrarInfoPlantel;
@@ -2908,40 +3003,8 @@
         }
     </script>
     <script src="js/boletines.js"></script>
-    <script src="js/site.js"></script>
+    <script src="js/site.js?v=20260618-site-source"></script>
     <script src="js/fixes.js"></script>
     <script src="https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js"></script>
-    <style>
-        /* ── Override Bootstrap/gob.mx dropdown styles ── */
-        .nav-main .dropdown-menu,
-        .nav-main ul.dropdown-menu {
-            background-color: #691c32 !important;
-            border: 1px solid #8B1538 !important;
-            border-radius: 5px !important;
-        }
-        .nav-main .dropdown-menu li a,
-        .nav-main .dropdown-menu > li > a,
-        .nav-main ul.dropdown-menu li a {
-            color: #ffffff !important;
-            background-color: transparent !important;
-            font-size: 14px !important;
-            font-weight: 500 !important;
-            padding: 10px 15px !important;
-            display: block !important;
-            line-height: 1.4 !important;
-            white-space: normal !important;
-        }
-        .nav-main .dropdown-menu li a strong {
-            color: #ffffff !important;
-        }
-        .nav-main .dropdown-menu li a:hover,
-        .nav-main .dropdown-menu > li > a:hover {
-            background-color: #ddc9a3 !important;
-            color: #333333 !important;
-        }
-        .nav-main .dropdown-menu li a:hover strong {
-            color: #333333 !important;
-        }
-    </style>
 </body>
 </html>
