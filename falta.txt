@@ -1,0 +1,4 @@
+1.- cómo se deben guardar las nuevas imagenes para mantener el mismo tamaño y formato sin perder calidad.
+2.- si se tiene que cambiar el nombre de algún director de plantel, donde se realizan los cambios
+3.- elimina el espacio en blanco arriba del banner para youtube
+4.- como puedo guardar la imagen para que se vea en el banner de youtube, y si tengo mas imágenes de diferentes paginas de youtube o facebook como puedo hacer para que se vean como estilo marquesina
