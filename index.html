@@ -758,6 +758,12 @@
             document.getElementById("especialidad-info").style.display = "none";
             document.getElementById("requisitos-inscripcion").style.display = "block";
             
+            // Ocultar marquesina
+            const marquesina = document.getElementById('banner-marquesina');
+            if (marquesina) {
+                marquesina.style.display = 'none';
+            }
+            
             // Ocultar detalle de noticia
             const noticiaDetalle = document.getElementById("noticia-detalle");
             if (noticiaDetalle) {
@@ -784,6 +790,12 @@
             document.getElementById("plantel-info").style.display = "none";
             document.getElementById("especialidad-info").style.display = "none";
             document.getElementById("especialidades-contenido").style.display = "block";
+            
+            // Ocultar marquesina
+            const marquesina = document.getElementById('banner-marquesina');
+            if (marquesina) {
+                marquesina.style.display = 'none';
+            }
             
             // Ocultar detalle de noticia
             const noticiaDetalle = document.getElementById("noticia-detalle");
@@ -1046,6 +1058,12 @@
             document.getElementById("requisitos-inscripcion").style.display = "none";
             document.getElementById("especialidad-info").style.display = "none";
             
+            // Ocultar marquesina
+            const marquesina = document.getElementById('banner-marquesina');
+            if (marquesina) {
+                marquesina.style.display = 'none';
+            }
+            
             // Limpiar selección de especialidad previa
             document.getElementById("especialidad-detalle").innerHTML = '';
             
@@ -1192,6 +1210,12 @@
         function ocultarPlantelInfo() {
             document.getElementById("plantel-info").style.display = "none";
             document.getElementById("especialidades-contenido").style.display = "block";
+            
+            // Ocultar marquesina (no está en pantalla de inicio)
+            const marquesina = document.getElementById('banner-marquesina');
+            if (marquesina) {
+                marquesina.style.display = 'none';
+            }
         }
 
         function mostrarDetalleEspecialidad(nombreEspecialidad, nombrePlantel) {
@@ -1199,6 +1223,12 @@
             document.getElementById("plantel-info").style.display = "none";
             document.getElementById("especialidades-contenido").style.display = "none";
             document.getElementById("requisitos-inscripcion").style.display = "none";
+            
+            // Ocultar marquesina
+            const marquesina = document.getElementById('banner-marquesina');
+            if (marquesina) {
+                marquesina.style.display = 'none';
+            }
             
             // Mostrar información de la especialidad
             const especialidadDetalle = document.getElementById("especialidad-detalle");
@@ -1333,6 +1363,12 @@
         function ocultarEspecialidadInfo() {
             document.getElementById("especialidad-info").style.display = "none";
             document.getElementById("plantel-info").style.display = "block";
+            
+            // Ocultar marquesina (no está en pantalla de inicio)
+            const marquesina = document.getElementById('banner-marquesina');
+            if (marquesina) {
+                marquesina.style.display = 'none';
+            }
         }
 
         function obtenerInfoEspecialidad(nombreEspecialidad) {
@@ -2098,8 +2134,47 @@
     </script>
     <script src="js/boletines.js"></script>
     <script src="js/banner-marquesina.js"></script>
-    <script src="js/site.js?v=20260618-site-source"></script>
+    <script src="js/site.js?v=20260622-sticky-nav"></script>
     <script src="js/fixes.js"></script>
     <script src="https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js"></script>
+    <script>
+        // Sticky Navigation - La barra de navegación se vuelve fija al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const navMain = document.querySelector('.nav-main');
+            if (navMain) {
+                const navSubtitle = document.querySelector('.nav-subtitle');
+                const bannerMarquesina = document.getElementById('banner-marquesina');
+                const headerTop = document.querySelector('.header-top');
+                
+                let stickyThreshold = 0;
+                
+                if (headerTop) {
+                    stickyThreshold += headerTop.offsetHeight;
+                }
+                
+                if (bannerMarquesina && bannerMarquesina.style.display !== 'none') {
+                    stickyThreshold += bannerMarquesina.offsetHeight;
+                }
+                
+                if (navSubtitle) {
+                    stickyThreshold += navSubtitle.offsetHeight;
+                }
+                
+                if (stickyThreshold === 0) {
+                    stickyThreshold = 130;
+                }
+                
+                window.addEventListener('scroll', function() {
+                    const scrollPosition = window.scrollY;
+                    
+                    if (scrollPosition > stickyThreshold) {
+                        navMain.classList.add('sticky');
+                    } else {
+                        navMain.classList.remove('sticky');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
