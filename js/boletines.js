@@ -203,6 +203,12 @@
                 plantelInfo.style.display = 'none';
             }
 
+            // Ocultar marquesina
+            const marquesina = document.getElementById('banner-marquesina');
+            if (marquesina) {
+                marquesina.style.display = 'none';
+            }
+
             // Ocultar contenedor de boletines
             const contenedorBoletines = document.getElementById('contenedor-boletines');
             if (contenedorBoletines) {
@@ -260,6 +266,12 @@
             if (contenidoPrincipal) {
                 // Estamos en index.html
                 contenidoPrincipal.style.display = 'block';
+                
+                // Mostrar marquesina al regresar a pantalla de inicio
+                const marquesina = document.getElementById('banner-marquesina');
+                if (marquesina) {
+                    marquesina.style.display = 'block';
+                }
             } else {
                 // Estamos en boletines.html o historico.html
                 const contenedorBoletines = document.getElementById('contenedor-boletines');
