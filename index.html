@@ -13,7 +13,9 @@
     <meta name="author" content="SCEO Veracruz">
     <link href="https://framework-gb.cdn.gob.mx/gm/v3/assets/images/favicon.ico" rel="shortcut icon">
     <link href="https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <script>
+        document.write('<link rel="stylesheet" href="css/index.css?v=' + Date.now() + '">');
+    </script>
 </head>
 
 
@@ -2132,49 +2134,15 @@
             }, 100);
         }
     </script>
-    <script src="js/boletines.js"></script>
-    <script src="js/banner-marquesina.js"></script>
-    <script src="js/site.js?v=20260622-sticky-nav"></script>
-    <script src="js/fixes.js"></script>
-    <script src="https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js"></script>
     <script>
-        // Sticky Navigation - La barra de navegación se vuelve fija al hacer scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const navMain = document.querySelector('.nav-main');
-            if (navMain) {
-                const navSubtitle = document.querySelector('.nav-subtitle');
-                const bannerMarquesina = document.getElementById('banner-marquesina');
-                const headerTop = document.querySelector('.header-top');
-                
-                let stickyThreshold = 0;
-                
-                if (headerTop) {
-                    stickyThreshold += headerTop.offsetHeight;
-                }
-                
-                if (bannerMarquesina && bannerMarquesina.style.display !== 'none') {
-                    stickyThreshold += bannerMarquesina.offsetHeight;
-                }
-                
-                if (navSubtitle) {
-                    stickyThreshold += navSubtitle.offsetHeight;
-                }
-                
-                if (stickyThreshold === 0) {
-                    stickyThreshold = 130;
-                }
-                
-                window.addEventListener('scroll', function() {
-                    const scrollPosition = window.scrollY;
-                    
-                    if (scrollPosition > stickyThreshold) {
-                        navMain.classList.add('sticky');
-                    } else {
-                        navMain.classList.remove('sticky');
-                    }
-                });
-            }
-        });
+        (function () {
+            var v = Date.now();
+            var archivos = ['js/boletines.js', 'js/banner-marquesina.js', 'js/site.js', 'js/fixes.js'];
+            archivos.forEach(function (src) {
+                document.write('<script src="' + src + '?v=' + v + '"><\/script>');
+            });
+        })();
     </script>
+    <script src="https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js"></script>
 </body>
 </html>
