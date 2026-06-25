@@ -34,7 +34,6 @@
             background-color: #8B1538;
             padding: 15px 20px;
             text-align: center;
-            border-bottom: 3px solid #FFD700;
             position: sticky;
             top: 80px;
             left: 0;
@@ -54,6 +53,7 @@
         /* Barra de navegación principal */
         .nav-main {
             background-color: #691c32;
+            border-top: 3px solid #FFD700;
             padding: 0;
             position: sticky;
             top: 130px;
