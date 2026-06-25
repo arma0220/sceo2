@@ -2,8 +2,6 @@
 //  site.js  –  lógica compartida entre TODAS las páginas
 // ============================================================
 
-console.log('site.js loaded');
-
 // ============================================================
 //  Fuente única de datos para los menús compartidos
 //  (OFERTA EDUCATIVA, PLANTELES y CONTACTO)
@@ -376,48 +374,5 @@ document.addEventListener('DOMContentLoaded', function () {
         if (window.location.hash === '#especialidades' || window.location.hash === '#requisitos') {
             history.replaceState(null, null, window.location.pathname);
         }
-    }
-
-    // ---------- Sticky Navigation ----------
-    const navMain = document.querySelector('.nav-main');
-    if (navMain) {
-        const navSubtitle = document.querySelector('.nav-subtitle');
-        const bannerMarquesina = document.getElementById('banner-marquesina');
-        const headerTop = document.querySelector('.header-top');
-        
-        // Calcular el umbral basado en los elementos que existen
-        let stickyThreshold = 0;
-        
-        // Si existe header-top (banner gobmx inyectado por framework)
-        if (headerTop) {
-            stickyThreshold += headerTop.offsetHeight;
-        }
-        
-        // Si existe banner-marquesina y está visible
-        if (bannerMarquesina && bannerMarquesina.style.display !== 'none') {
-            stickyThreshold += bannerMarquesina.offsetHeight;
-        }
-        
-        // Si existe nav-subtitle
-        if (navSubtitle) {
-            stickyThreshold += navSubtitle.offsetHeight;
-        }
-        
-        // Si no se encontraron elementos, usar un valor por defecto
-        if (stickyThreshold === 0) {
-            stickyThreshold = 130;
-        }
-        
-        console.log('Sticky threshold calculated:', stickyThreshold);
-        
-        window.addEventListener('scroll', function () {
-            const scrollPosition = window.scrollY;
-            
-            if (scrollPosition > stickyThreshold) {
-                navMain.classList.add('sticky');
-            } else {
-                navMain.classList.remove('sticky');
-            }
-        });
     }
 });

@@ -1,5 +1,103 @@
 // Base de datos de noticias
         const noticias = [
+            //EJEMPLO PARA AGREGAR NOTAS
+            //{
+            //    id: 13,
+            //    titulo: " ",
+            //    textoPrevio: " ",
+            //    textoCompleto: " ",
+            //    imagen: "imagenes/noticias/noticia13.jpg",
+            //    imagenesAdicionales: [
+            //        "imagenes/noticias/noticia13-1.jpg",
+            //        "imagenes/noticias/noticia13-2.jpg",
+            //       "imagenes/noticias/noticia13-3.jpg",
+            //    ],
+            //    fecha: "23-06-2026",
+            //    mes: "Junio",
+            //    anio: "2026"
+            //},
+            
+            {
+                id: 16,
+                titulo: "CECATI 72 celebra la creatividad y la innovación estudiantil en la Fase Estatal de “Creaciones Educativas”",
+                textoPrevio: "El talento, la dedicación y el compromiso de las y los estudiantes fueron protagonistas de este encuentro, que fortaleció los vínculos entre la educación para el trabajo, las autoridades locales y el sector productivo.",
+                textoCompleto: "Con gran entusiasmo y orgullo, el CECATI 72 llevó a cabo el evento “Creaciones Educativas”, Fase Estatal, una jornada dedicada a reconocer y promover la creatividad, la innovación y el talento de las y los estudiantes que se forman en las distintas especialidades que ofrece la institución.<br><br>Durante el evento, las y los alumnos presentaron diversos proyectos que evidenciaron el impacto de la formación para el trabajo en el desarrollo de competencias técnicas, habilidades creativas y capacidades emprendedoras. Cada propuesta reflejó el esfuerzo, la dedicación y el acompañamiento permanente de las y los instructores, quienes contribuyen de manera decisiva a la formación integral del alumnado.<br><br>La ceremonia contó con la distinguida presencia de autoridades municipales, entre ellas la Lic. Nereyda Jiménez Cruz, Síndica Única del Honorable Ayuntamiento de Cosoleacaque, y el Lic. Juan Antonio Tena Galván, Regidor Octavo del Honorable Ayuntamiento de Minatitlán, Veracruz, cuya participación reafirma la importancia de fortalecer los lazos entre las instituciones educativas y su entorno social.<br><br>Asimismo, se reconoció la presencia y el respaldo del Ing. Sergio López Hernández, Subdirector de la Coordinación de Enlace Operativo de la DGCFT en el estado de Veracruz, así como de la Mtra. Esmeralda Zárate Chávez, Auxiliar de Vinculación con el Sector Productivo de la misma Subdirección, quienes acompañaron esta actividad como muestra de su compromiso con el fortalecimiento de la educación para el trabajo y la vinculación con los sectores productivos.<br><br>El CECATI 72 agradeció la participación de directivos, docentes, personal administrativo, estudiantes, autoridades, personal de apoyo y aliados estratégicos que hicieron posible la realización de este importante encuentro académico, el cual contribuye a fortalecer la calidad educativa y a generar mayores oportunidades de desarrollo para las y los estudiantes.<br><br>A través de iniciativas como “Creaciones Educativas”, el CECATI 72 reafirma su misión de transformar vidas mediante la educación, impulsando espacios donde el conocimiento, la creatividad y la innovación se convierten en herramientas para construir mejores oportunidades de crecimiento personal y profesional.<br><br>Las autoridades educativas felicitaron a todas y todos los participantes por su destacada participación y por demostrar que la capacitación para el trabajo es un motor de desarrollo, innovación y transformación social.",
+                imagen: "imagenes/noticias/noticia16.jpg",
+                imagenesAdicionales: [
+                    "imagenes/noticias/noticia16-1.jpg",
+                    "imagenes/noticias/noticia16-2.jpg",
+                    "imagenes/noticias/noticia16-3.jpg",
+                    "imagenes/noticias/noticia16-4.jpg",
+                    "imagenes/noticias/noticia16-5.jpg",
+                    "imagenes/noticias/noticia16-6.jpg",
+                    "imagenes/noticias/noticia16-7.jpg",
+                    "imagenes/noticias/noticia16-8.jpg",
+                    "imagenes/noticias/noticia16-9.jpg",
+                    "imagenes/noticias/noticia16-10.jpg",
+                    "imagenes/noticias/noticia16-11.jpg",
+                    "imagenes/noticias/noticia16-12.jpg",
+                    "imagenes/noticias/noticia16-13.jpg",
+                    "imagenes/noticias/noticia16-14.jpg",
+                    "imagenes/noticias/noticia16-15.jpg",
+                    "imagenes/noticias/noticia16-16.jpg",
+                    "imagenes/noticias/noticia16-17.jpg",
+                    "imagenes/noticias/noticia16-18.jpg",
+                    "imagenes/noticias/noticia16-19.jpg",
+                    "imagenes/noticias/noticia16-20.jpg",
+                    "imagenes/noticias/noticia16-21.jpg",
+                    "imagenes/noticias/noticia16-22.jpg",
+                    "imagenes/noticias/noticia16-23.jpg",
+                    "imagenes/noticias/noticia16-24.jpg",
+                ],
+                fecha: "23-06-2026",
+                mes: "Junio",
+                anio: "2026"
+            },
+            {
+                id: 15,
+                titulo: "DGCFT avanza hacia el cumplimiento total de visitas de supervisión en planteles de la Ciudad de México",
+                textoPrevio: "El Director General, Dr. Francisco Garduño Yáñez, encabezó una visita de trabajo al CECATI 128 como parte de la estrategia de supervisión y fortalecimiento de la capacitación para el trabajo en la capital del país.",
+                textoCompleto: "Como parte de la Jornada Nacional de Visita a Planteles, el Director General de la Dirección General de Centros de Formación para el Trabajo (DGCFT), Dr. Francisco Garduño Yáñez, realizó una visita de supervisión y vinculación al CECATI 128, reafirmando el compromiso institucional de fortalecer la calidad de la formación para el trabajo en la Ciudad de México.<br><br>Con esta visita, la DGCFT continúa avanzando de manera firme hacia el cumplimiento del 100 por ciento de los recorridos programados en los 32 planteles de la capital, una estrategia que permite mantener un contacto directo con las comunidades educativas y conocer de primera mano sus necesidades, avances y áreas de oportunidad.<br><br>Durante la jornada, se reconoció la labor que diariamente realizan docentes, personal administrativo y directivo para brindar servicios de capacitación pertinentes y de calidad, contribuyendo al desarrollo de competencias laborales que favorecen la empleabilidad y el crecimiento profesional de las y los estudiantes.<br><br>Asimismo, estos encuentros fortalecen los mecanismos de diálogo y colaboración entre la autoridad educativa y los planteles, impulsando acciones que contribuyan a la mejora continua de los espacios formativos.<br><br>La DGCFT agradece la cálida recepción de la comunidad del CECATI 128 y refrenda su compromiso de seguir trabajando en territorio para impulsar el talento, la capacitación y el desarrollo integral de las y los mexicanos.",
+                imagen: "imagenes/noticias/noticia15.jpg",
+                imagenesAdicionales: [
+                    "imagenes/noticias/noticia15-1.jpg",
+                    "imagenes/noticias/noticia15-2.jpg",
+                    "imagenes/noticias/noticia15-3.jpg",
+                    "imagenes/noticias/noticia15-4.jpg",
+                    "imagenes/noticias/noticia15-5.jpg",
+                ],
+                fecha: "23-06-2026",
+                mes: "Junio",
+                anio: "2026"
+            },
+            {
+                id: 14,
+                titulo: "Jornada Nacional de Visita a Planteles fortalece la formación para el trabajo en la Ciudad de México",
+                textoPrevio: "El Director General de la DGCFT, Dr. Francisco Garduño Yáñez, visitó el CECATI 171 para dar continuidad a las acciones de supervisión y fortalecimiento de los espacios de capacitación en la capital del país.",
+                textoCompleto: "Como parte de la recta final de la Jornada Nacional de Visita a Planteles en la Ciudad de México, el Director General de la Dirección General de Centros de Formación para el Trabajo (DGCFT), Dr. Francisco Garduño Yáñez, encabezó una visita de trabajo al CECATI 171, reafirmando el compromiso institucional con la mejora continua de la capacitación para el trabajo.<br><br>Durante el recorrido por las instalaciones, se destacó la importancia de mantener una presencia cercana en los planteles, escuchando de manera directa a la comunidad escolar y verificando las condiciones que permiten ofrecer una formación pertinente y de calidad.<br><br>La visita permitió fortalecer el diálogo con directivos, docentes, personal administrativo y estudiantes, con el objetivo de identificar áreas de oportunidad y consolidar acciones que contribuyan al desarrollo integral de los centros de capacitación.<br><br>La DGCFT mantiene la convicción de que el trabajo en territorio y el fortalecimiento de los espacios educativos son fundamentales para transformar vidas, impulsar el desarrollo de competencias laborales y generar mayores oportunidades para las y los mexicanos.",
+                imagen: "imagenes/noticias/noticia14.jpg",
+                imagenesAdicionales: [
+                    "imagenes/noticias/noticia14-1.jpg",
+                ],
+                fecha: "23-06-2026",
+                mes: "Junio",
+                anio: "2026"
+            },
+            {
+                id: 13,
+                titulo: "Director General de la DGCFT supervisa y fortalece acciones de formación para el trabajo en la Ciudad de México",
+                textoPrevio: "Durante una gira de trabajo por los CECATI 2 y 194, el Dr. Francisco Garduño Yáñez reafirmó el compromiso institucional de impulsar espacios educativos de calidad que respondan a las necesidades del sector productivo y contribuyan al desarrollo laboral del país.",
+                textoCompleto: "Como parte de las acciones orientadas al fortalecimiento de la formación para el trabajo en el territorio, el Director General de la Dirección General de Centros de Formación para el Trabajo (DGCFT), Dr. Francisco Garduño Yáñez, realizó un recorrido de supervisión y diálogo en los Centros de Capacitación para el Trabajo Industrial (CECATI) 2 y 194, ubicados en la Ciudad de México.<br><br>Durante la visita, sostuvo encuentros con directivos, docentes, personal administrativo y estudiantes, con quienes intercambió experiencias y reflexiones sobre los retos y oportunidades para continuar elevando la calidad de los servicios educativos que ofrecen estos planteles.<br><br>En este marco, se refrendó el compromiso de trabajar de manera coordinada para consolidar espacios formativos de excelencia, fortalecer las competencias laborales de las y los estudiantes y contribuir al desarrollo económico y social del país.<br><br>Con acciones de cercanía y colaboración institucional, la DGCFT continúa impulsando una capacitación pertinente y de calidad, orientada a fortalecer el futuro laboral de México.",
+                imagen: "imagenes/noticias/noticia13.jpg",
+                imagenesAdicionales: [
+                    "imagenes/noticias/noticia13-1.jpg",
+                    "imagenes/noticias/noticia13-2.jpg",
+                    "imagenes/noticias/noticia13-3.jpg",
+                ],
+                fecha: "23-06-2026",
+                mes: "Junio",
+                anio: "2026"
+            },
             {
                 id: 12,
                 titulo: "“Macha Gourmet”, el emprendimiento que lleva el talento de Telebachillerato Cosamaloapan a la etapa estatal",
