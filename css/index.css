@@ -1,4 +1,4 @@
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -140,8 +140,7 @@
             background-color: #8B1538;
             padding: 15px 20px;
             text-align: center;
-            border-bottom: 3px solid #FFD700;
-            position: fixed;
+            position: sticky;
             top: 80px;
             left: 0;
             right: 0;
@@ -158,19 +157,13 @@
         /* Barra de navegación principal */
         .nav-main {
             background-color: #691c32;
+            border-top: 3px solid #FFD700;
             padding: 0;
-            position: relative;
-            top: auto;
-            left: auto;
-            right: auto;
-            z-index: 998;
-        }
-
-        .nav-main.sticky {
-            position: fixed;
+            position: sticky;
             top: 130px;
             left: 0;
             right: 0;
+            z-index: 998;
         }
         
         .nav-main ul {
@@ -262,7 +255,7 @@
         .main-content {
             min-height: 400px;
             padding: 20px;
-            margin-top: 190px;
+            margin-top: 0px;
         }
         
         /* Estilos para contenido de requisitos */
@@ -818,23 +811,23 @@
         }
 
         /* ---------- 480px: Móviles ---------- */
-        .nav-subtitle,
-        .nav-main {
-            position: relative !important;
-            top: auto !important;
-            left: auto !important;
-            right: auto !important;
-        }
-
-        .main-content {
-            margin-top: 20px !important;
-        }
-
-        body::before {
-            display: none !important;
-        }
-
         @media (max-width: 480px) {
+            .nav-subtitle,
+            .nav-main {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+            }
+
+            .main-content {
+                margin-top: 20px !important;
+            }
+
+            body::before {
+                display: none !important;
+            }
+
             .header-top {
                 padding: 6px 10px;
             }

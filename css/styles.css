@@ -26,6 +26,8 @@
         body::before {
             display: none !important;
         }
+
+
         
         /* Banner de subdirección */
         .nav-subtitle {
@@ -33,7 +35,7 @@
             padding: 15px 20px;
             text-align: center;
             border-bottom: 3px solid #FFD700;
-            position: fixed;
+            position: sticky;
             top: 80px;
             left: 0;
             right: 0;
@@ -46,12 +48,14 @@
             font-weight: 600;
             margin: 0;
         }
+
+
         
         /* Barra de navegación principal */
         .nav-main {
             background-color: #691c32;
             padding: 0;
-            position: fixed;
+            position: sticky;
             top: 130px;
             left: 0;
             right: 0;
@@ -86,6 +90,8 @@
             background-color: #6B1028;
         }
         
+
+
         /* Estilos para menú desplegable */
         .dropdown {
             position: relative;
@@ -144,13 +150,19 @@
             color: #333;
         }
         
+
+
+
         /* Contenido principal */
         .main-content {
             min-height: 400px;
             padding: 20px;
-            margin-top: 190px;
+            margin-top: 0px;
         }
         
+
+
+
         /* Estilos para contenido de requisitos */
         #requisitos-inscripcion {
             max-width: 800px;
